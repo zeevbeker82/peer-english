@@ -17,8 +17,6 @@ export interface GameScore {
   lastPlayed: string;     // ISO date
 }
 
-type ScoreMap = Record<string, GameScore>;
-
 // ─────────────────────────────────────────────────────────────────────────────
 // Helpers
 // ─────────────────────────────────────────────────────────────────────────────

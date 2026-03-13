@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils/cn";
 import type { MultipleChoiceExercise } from "@/lib/exercises/types";
-import { Button } from "@/components/ui/Button";
 
 interface Props {
   exercise: MultipleChoiceExercise;

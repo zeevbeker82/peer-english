@@ -2,7 +2,6 @@
 import { useState, useCallback } from "react";
 import { cn } from "@/lib/utils/cn";
 import type { MatchingExercise } from "@/lib/exercises/types";
-import { Button } from "@/components/ui/Button";
 
 interface Props {
   exercise: MatchingExercise;
@@ -26,8 +25,6 @@ export function Matching({ exercise, onAnswer, disabled }: Props) {
   const [selectedLeft, setSelectedLeft] = useState<string | null>(null);
   const [matched, setMatched] = useState<Record<string, string>>({}); // english id → hebrew id
   const [wrongPair, setWrongPair] = useState<[string, string] | null>(null);
-
-  const correctPairs = Object.fromEntries(exercise.pairs.map((p) => [p.id, p.id]));
 
   const matchedEnglishIds = new Set(Object.keys(matched));
   const matchedHebrewIds = new Set(Object.values(matched));
