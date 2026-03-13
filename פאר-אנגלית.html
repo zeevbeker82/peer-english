@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>פאר – לימוד אנגלית</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#3B82F6;--blue-light:#EFF6FF;--blue-mid:#BFDBFE;
+  --green:#22C55E;--green-light:#F0FDF4;
+  --red:#EF4444;--red-light:#FEF2F2;
+  --orange:#F59E0B;--orange-light:#FFFBEB;
+  --purple:#8B5CF6;--purple-light:#F5F3FF;
+  --gray-50:#F9FAFB;--gray-100:#F3F4F6;--gray-200:#E5E7EB;
+  --gray-400:#9CA3AF;--gray-600:#4B5563;--gray-800:#1F2937;
+  --font:'Heebo',Arial,sans-serif;
+  --r:16px;--sh:0 2px 8px rgba(0,0,0,.08);--sh-lg:0 4px 16px rgba(0,0,0,.12);
+}
+html{font-family:var(--font);font-size:16px}
+body{background:linear-gradient(180deg,#EFF6FF 0%,#F0F9FF 40%,#fff 100%);min-height:100vh;color:var(--gray-800)}
+button{font-family:var(--font);cursor:pointer;border:none;background:none}
+
+/* ── Screens ── */
+.screen{display:none;min-height:100vh;flex-direction:column}
+.screen.active{display:flex}
+.container{max-width:480px;margin:0 auto;padding:0 16px;width:100%}
+
+/* ── Nav ── */
+nav{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.06);padding:13px 16px;
+  display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
+.logo{font-size:19px;font-weight:900;color:var(--blue);display:flex;align-items:center;gap:8px}
+.nav-btn{font-size:22px;padding:6px;border-radius:10px;transition:background .15s}
+.nav-btn:hover{background:var(--gray-100)}
+
+/* ── Card ── */
+.card{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:18px;border:1px solid var(--gray-100)}
+
+/* ── Buttons ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px 22px;border-radius:14px;font-weight:700;font-size:16px;font-family:var(--font);
+  transition:all .15s;cursor:pointer;border:none}
+.btn:active{transform:scale(.97)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn-primary{background:var(--blue);color:#fff}.btn-primary:hover{background:#2563EB}
+.btn-success{background:var(--green);color:#fff}.btn-success:hover{background:#16A34A}
+.btn-outline{background:transparent;border:2px solid var(--blue);color:var(--blue)}.btn-outline:hover{background:var(--blue-light)}
+.btn-ghost{background:transparent;color:var(--gray-600)}.btn-ghost:hover{background:var(--gray-100)}
+.btn-danger{background:var(--red);color:#fff}
+.btn-full{width:100%}
+.btn-lg{padding:14px 28px;font-size:18px;border-radius:16px}
+
+/* ── Progress Bar ── */
+.pbar-track{height:10px;background:var(--gray-200);border-radius:100px;overflow:hidden}
+.pbar-fill{height:100%;border-radius:100px;background:var(--blue);transition:width .5s ease}
+.pbar-fill.green{background:var(--green)}.pbar-fill.purple{background:var(--purple)}
+
+/* ── Badge ── */
+.badge{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;
+  border-radius:100px;font-size:13px;font-weight:700}
+.badge-blue{background:#DBEAFE;color:#1D4ED8}
+.badge-green{background:#DCFCE7;color:#15803D}
+.badge-orange{background:#FEF3C7;color:#B45309}
+.badge-gray{background:var(--gray-100);color:var(--gray-600)}
+
+/* ── Animations ── */
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pop{0%{transform:scale(.9);opacity:0}70%{transform:scale(1.05)}100%{transform:scale(1);opacity:1}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.anim-fade{animation:fadeIn .3s ease}
+.anim-slide{animation:slideUp .3s ease}
+.anim-pop{animation:pop .3s ease}
+.anim-shake{animation:shake .4s ease}
+
+/* ══ HOME ══ */
+.home-body{padding:18px 0 80px;display:flex;flex-direction:column;gap:14px}
+.greeting h2{font-size:25px;font-weight:900}
+.greeting p{color:var(--gray-400);font-size:14px;margin-top:2px}
+.streak-box{display:flex;flex-direction:column;align-items:center;
+  background:#FFF7ED;border:2px solid #FDBA74;border-radius:14px;padding:10px 14px}
+.streak-box .fire{font-size:28px}
+.streak-box .cnt{font-size:22px;font-weight:900;color:#EA580C;line-height:1}
+.streak-box .lbl{font-size:11px;color:#C2410C;font-weight:600}
+.sec-title{font-size:15px;font-weight:800;display:flex;align-items:center;gap:6px}
+.mission-card{border-radius:20px;padding:20px;color:#fff;cursor:pointer;
+  transition:transform .2s;box-shadow:var(--sh-lg)}
+.mission-card:hover{transform:scale(1.02)}.mission-card:active{transform:scale(.99)}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat-card{text-align:center}
+.stat-card .v{font-size:26px;font-weight:900}
+.stat-card .l{font-size:12px;color:var(--gray-400);margin-top:2px}
+.lesson-list{display:flex;flex-direction:column;gap:8px}
+.lesson-item{background:#fff;border-radius:var(--r);border:1px solid var(--gray-100);
+  padding:13px 15px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:box-shadow .2s}
+.lesson-item:hover{box-shadow:var(--sh)}
+.lesson-item .icon-wrap{width:46px;height:46px;border-radius:12px;display:flex;
+  align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.lesson-item .info{flex:1}
+.lesson-item .name{font-weight:800;font-size:15px}
+.lesson-item .sub{font-size:12px;color:var(--gray-400);direction:ltr}
+
+/* Bottom nav */
+.bnav{position:fixed;bottom:0;left:0;right:0;background:#fff;
+  border-top:1px solid var(--gray-200);display:flex;z-index:20}
+.bnav button{flex:1;padding:10px 0;display:flex;flex-direction:column;
+  align-items:center;gap:2px;font-size:11px;font-weight:700;color:var(--gray-400);transition:color .15s}
+.bnav button.active{color:var(--blue)}
+.bnav button .bico{font-size:22px}
+
+/* ══ LESSON ══ */
+.lesson-hdr{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.06);
+  padding:13px 16px;display:flex;align-items:center;gap:12px}
+.lesson-hdr .close{font-size:18px;padding:6px;border-radius:10px;
+  color:var(--gray-600);transition:background .15s}
+.lesson-hdr .close:hover{background:var(--gray-100)}
+.lesson-hdr .ltitle{font-weight:800;font-size:17px;flex:1}
+.lesson-hdr .lcnt{font-size:13px;color:var(--gray-400);font-weight:600}
+.lprog{padding:12px 16px 0;background:#fff}
+.ex-area{flex:1;padding:20px 16px;max-width:480px;margin:0 auto;width:100%}
+.ex-instr{color:var(--gray-400);font-size:14px;font-weight:600;margin-bottom:14px}
+
+/* Question word box */
+.q-box{background:var(--blue-light);border:2px solid var(--blue-mid);border-radius:18px;
+  padding:20px;text-align:center;margin-bottom:18px;direction:ltr}
+.q-word{font-size:38px;font-weight:900;color:#1D4ED8}
+.speak-btn{font-size:22px;margin-top:6px;cursor:pointer;display:inline-block}
+
+/* Options */
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{padding:15px 10px;border-radius:14px;border:2px solid var(--gray-200);background:#fff;
+  font-size:16px;font-weight:700;transition:all .15s;font-family:var(--font)}
+.opt:hover:not(:disabled){border-color:var(--blue);background:var(--blue-light)}
+.opt.sel{border-color:var(--blue);background:var(--blue-light)}
+.opt.correct{border-color:var(--green);background:var(--green-light);color:#15803D;animation:pop .3s ease}
+.opt.wrong{border-color:var(--red);background:var(--red-light);color:#B91C1C;animation:shake .4s ease}
+.opt.dim{opacity:.4}.opt:disabled{cursor:not-allowed}
+
+/* Fill blank */
+.sent-box{background:var(--blue-light);border:2px solid var(--blue-mid);border-radius:18px;
+  padding:20px;text-align:center;margin-bottom:18px;direction:ltr;
+  font-size:20px;font-weight:700;line-height:1.8;color:#1E3A8A}
+.blank{display:inline-block;min-width:90px;border-bottom:3px solid var(--blue);
+  padding:2px 6px;margin:0 4px;color:var(--blue)}
+.blank.ok{border-color:var(--green);color:#15803D}
+.blank.bad{border-color:var(--red);color:var(--red)}
+.wbank{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.wbtn{padding:10px 16px;border-radius:12px;border:2px solid var(--gray-200);background:#fff;
+  font-size:16px;font-weight:700;font-family:var(--font);transition:all .15s;direction:ltr}
+.wbtn:hover:not(:disabled){border-color:var(--blue);background:var(--blue-light)}
+.wbtn.correct{border-color:var(--green);background:var(--green-light);color:#15803D;animation:pop .3s}
+.wbtn.wrong{border-color:var(--red);background:var(--red-light);color:var(--red);animation:shake .4s}
+.wbtn.dim{opacity:.35}.wbtn:disabled{cursor:not-allowed}
+
+/* Feedback */
+.fb-bar{padding:16px;max-width:480px;margin:0 auto;width:100%}
+.fb-banner{border-radius:16px;padding:14px 16px;display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.fb-banner.ok{background:var(--green-light);border:2px solid #86EFAC}
+.fb-banner.bad{background:var(--red-light);border:2px solid #FCA5A5}
+.fb-banner .fmsg{font-weight:700;font-size:16px}
+.fb-banner .fsub{font-size:13px;opacity:.7}
+
+/* ══ COMPLETE ══ */
+#screen-complete{background:linear-gradient(180deg,#EFF6FF 0%,#F5F3FF 100%);
+  align-items:center;justify-content:center;padding:20px}
+.comp-wrap{text-align:center;max-width:380px;width:100%}
+.stars{font-size:52px;margin-bottom:14px;letter-spacing:4px}
+.comp-title{font-size:28px;font-weight:900;margin-bottom:6px}
+.comp-sub{font-size:15px;color:var(--gray-400);margin-bottom:22px}
+.score-card{background:#fff;border-radius:20px;padding:20px;margin-bottom:18px;
+  box-shadow:var(--sh-lg);text-align:right}
+.score-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.score-val{font-size:28px;font-weight:900;color:var(--blue)}
+.mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.mini-stat{text-align:center;background:var(--gray-50);border-radius:12px;padding:10px}
+.mini-stat .mv{font-size:22px;font-weight:900}
+.mini-stat .ml{font-size:11px;color:var(--gray-400)}
+.comp-acts{display:flex;flex-direction:column;gap:10px}
+
+/* ══ DICTIONARY ══ */
+#screen-dict{background:linear-gradient(180deg,#F5F3FF 0%,#fff 100%)}
+.dict-body{padding:16px 0 80px;display:flex;flex-direction:column;gap:14px}
+.topic-scroll{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+.topic-scroll::-webkit-scrollbar{display:none}
+.topic-chip{white-space:nowrap;padding:6px 14px;border-radius:100px;
+  border:2px solid var(--gray-200);font-size:13px;font-weight:700;
+  background:#fff;cursor:pointer;transition:all .15s;font-family:var(--font)}
+.topic-chip.active{background:var(--purple);color:#fff;border-color:var(--purple)}
+.view-toggle{display:flex;gap:8px}
+.tog-btn{flex:1;padding:8px;border-radius:12px;font-size:13px;font-weight:700;
+  border:2px solid var(--gray-200);background:#fff;transition:all .15s;cursor:pointer;font-family:var(--font)}
+.tog-btn.active{background:var(--purple);color:#fff;border-color:var(--purple)}
+
+/* Flashcard */
+.flashcard{background:#fff;border-radius:24px;box-shadow:var(--sh-lg);min-height:190px;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;
+  gap:10px;cursor:pointer;padding:28px;text-align:center;
+  border:2px solid var(--gray-100);transition:transform .2s;user-select:none}
+.flashcard:active{transform:scale(.98)}
+.fc-emoji{font-size:46px}
+.fc-en{font-size:38px;font-weight:900;color:#1D4ED8;direction:ltr}
+.fc-he{font-size:28px;font-weight:900;color:var(--purple)}
+.fc-ex{font-size:13px;color:var(--gray-400);direction:ltr;font-style:italic}
+.fc-hint{font-size:13px;color:var(--gray-400)}
+.grade-btns{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.gbtn{display:flex;flex-direction:column;align-items:center;gap:4px;
+  padding:10px 6px;border-radius:12px;border:2px solid;
+  font-size:11px;font-weight:700;cursor:pointer;font-family:var(--font);transition:all .15s}
+.gbtn .ge{font-size:20px}
+.gbtn:hover{transform:scale(1.06)}
+.g0{border-color:#FCA5A5;background:var(--red-light);color:#B91C1C}
+.g1{border-color:#FCD34D;background:var(--orange-light);color:#92400E}
+.g2{border-color:#93C5FD;background:#DBEAFE;color:#1E40AF}
+.g3{border-color:#86EFAC;background:var(--green-light);color:#15803D}
+
+/* Word list */
+.word-list{display:flex;flex-direction:column;gap:8px}
+.word-item{background:#fff;border-radius:14px;border:1px solid var(--gray-100);
+  padding:12px 14px;display:flex;align-items:center;gap:12px}
+.word-item .wi-e{font-size:26px}
+.word-item .wi-info{flex:1}
+.word-item .wi-en{font-size:16px;font-weight:800;direction:ltr;display:flex;align-items:center;gap:6px}
+.word-item .wi-he{font-size:14px;color:var(--purple);font-weight:600}
+.word-item .wi-ex{font-size:12px;color:var(--gray-400);direction:ltr;font-style:italic;margin-top:2px}
+.speak-mini{font-size:14px;cursor:pointer}
+
+/* ══ SETTINGS ══ */
+#screen-settings{background:var(--gray-50)}
+.set-body{padding:16px 0 40px;display:flex;flex-direction:column;gap:14px}
+.set-group{background:#fff;border-radius:var(--r);box-shadow:var(--sh);overflow:hidden}
+.set-gtitle{font-size:13px;font-weight:800;color:var(--gray-400);text-transform:uppercase;
+  letter-spacing:.5px;padding:14px 16px 8px}
+.set-row{padding:14px 16px;display:flex;align-items:center;gap:12px;
+  border-top:1px solid var(--gray-100)}
+.set-row:first-of-type{border-top:none}
+.set-row .sri{flex:1}
+.set-row .sri .srn{font-weight:700;font-size:15px}
+.set-row .sri .srd{font-size:12px;color:var(--gray-400);margin-top:1px}
+.toggle{width:48px;height:26px;border-radius:100px;background:var(--gray-200);
+  position:relative;cursor:pointer;transition:background .2s;flex-shrink:0;border:none}
+.toggle.on{background:var(--blue)}
+.toggle::after{content:'';position:absolute;width:20px;height:20px;border-radius:100px;
+  background:#fff;top:3px;left:3px;transition:transform .2s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.toggle.on::after{transform:translateX(22px)}
+input[type=range]{width:100%;accent-color:var(--blue);margin:6px 0}
+.range-lbl{display:flex;justify-content:space-between;font-size:11px;color:var(--gray-400)}
+.reset-box{background:#FEF2F2;border:2px solid #FCA5A5;border-radius:14px;padding:14px;margin-top:8px}
+.reset-box p{font-weight:700;color:#991B1B;margin-bottom:12px;font-size:14px}
+.reset-box .rb{display:flex;gap:8px}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ HOME ══════════════════ -->
+<div id="screen-home" class="screen">
+  <nav>
+    <div class="logo">📚 פאר אנגלית</div>
+    <button class="nav-btn" onclick="goTo('settings')">⚙️</button>
+  </nav>
+  <div class="container">
+    <div class="home-body">
+
+      <!-- Greeting + Streak -->
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">
+        <div class="greeting"><h2>שלום! 👋</h2><p>בואו נלמד אנגלית היום</p></div>
+        <div class="streak-box">
+          <div class="fire">🔥</div>
+          <div class="cnt" id="h-streak">0</div>
+          <div class="lbl">ימים</div>
+        </div>
+      </div>
+
+      <!-- XP Card -->
+      <div class="card">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+          <div style="display:flex;align-items:center;gap:10px">
+            <span style="font-size:26px">⭐</span>
+            <div>
+              <div style="font-weight:900;font-size:17px">רמה <span id="h-level">1</span></div>
+              <div style="font-size:12px;color:var(--gray-400)"><span id="h-xp">0</span> XP כולל</div>
+            </div>
+          </div>
+          <span class="badge badge-blue" id="h-xp-next">100 XP לרמה הבאה</span>
+        </div>
+        <div class="pbar-track"><div class="pbar-fill purple" id="h-xp-bar" style="width:0%"></div></div>
+      </div>
+
+      <!-- Mission -->
+      <div>
+        <div class="sec-title">🎯 המשימה של היום</div>
+        <div style="height:10px"></div>
+        <div id="h-mission"></div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="card stat-card"><div class="v" style="color:var(--blue)" id="h-slessons">0</div><div class="l">שיעורים</div></div>
+        <div class="card stat-card"><div class="v" style="color:var(--orange)" id="h-sdue">0</div><div class="l">לחזרה</div></div>
+        <div class="card stat-card"><div class="v" style="color:var(--purple)" id="h-sxp">0</div><div class="l">XP</div></div>
+      </div>
+
+      <!-- All Lessons -->
+      <div>
+        <div class="sec-title">📋 כל השיעורים</div>
+        <div style="height:10px"></div>
+        <div class="lesson-list" id="h-lesson-list"></div>
+      </div>
+
+      <!-- Quick nav -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div class="card" style="text-align:center;cursor:pointer;padding:16px" onclick="goTo('dict')">
+          <div style="font-size:30px;margin-bottom:4px">🗂️</div>
+          <div style="font-weight:800;font-size:14px">מילון</div>
+          <div style="font-size:12px;color:var(--gray-400)">כרטיסיות חזרה</div>
+        </div>
+        <div class="card" style="text-align:center;cursor:pointer;padding:16px" onclick="goTo('settings')">
+          <div style="font-size:30px;margin-bottom:4px">⚙️</div>
+          <div style="font-weight:800;font-size:14px">הגדרות</div>
+          <div style="font-size:12px;color:var(--gray-400)">קול, גודל טקסט</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="bnav">
+    <button class="active" onclick="goTo('home')"><div class="bico">🏠</div><div>בית</div></button>
+    <button onclick="goTo('dict')"><div class="bico">🗂️</div><div>מילון</div></button>
+    <button onclick="goTo('settings')"><div class="bico">⚙️</div><div>הגדרות</div></button>
+  </div>
+</div>
+
+<!-- ══════════════════ LESSON ══════════════════ -->
+<div id="screen-lesson" class="screen">
+  <div class="lesson-hdr">
+    <button class="close" onclick="goTo('home')">✕</button>
+    <div class="ltitle" id="l-title">שיעור</div>
+    <div class="lcnt" id="l-cnt">1/5</div>
+  </div>
+  <div class="lprog">
+    <div class="pbar-track"><div class="pbar-fill" id="l-pbar" style="width:0%"></div></div>
+    <div style="display:flex;justify-content:space-between;margin-top:4px;font-size:12px;color:var(--gray-400)">
+      <span>✓ <span id="l-correct">0</span> נכון</span>
+      <span><span id="l-left">5</span> נשארו</span>
+    </div>
+  </div>
+  <div class="ex-area anim-slide" id="ex-area"></div>
+  <div class="fb-bar" id="fb-area" style="display:none"></div>
+</div>
+
+<!-- ══════════════════ COMPLETE ══════════════════ -->
+<div id="screen-complete" class="screen">
+  <div class="comp-wrap anim-pop">
+    <div class="stars" id="c-stars">⭐⭐⭐</div>
+    <div class="comp-title" id="c-title">כל הכבוד!</div>
+    <div class="comp-sub" id="c-sub"></div>
+    <div class="score-card">
+      <div class="score-row">
+        <span style="color:var(--gray-600);font-weight:700">תוצאה</span>
+        <span class="score-val" id="c-pct">0%</span>
+      </div>
+      <div class="pbar-track"><div class="pbar-fill" id="c-bar" style="width:0%"></div></div>
+      <div class="mini-stats">
+        <div class="mini-stat"><div class="mv" style="color:var(--green)" id="c-ok">0</div><div class="ml">נכון</div></div>
+        <div class="mini-stat"><div class="mv" style="color:var(--red)" id="c-err">0</div><div class="ml">טעות</div></div>
+        <div class="mini-stat"><div class="mv" style="color:var(--orange)">+<span id="c-xp">0</span></div><div class="ml">XP</div></div>
+      </div>
+    </div>
+    <div class="comp-acts">
+      <button class="btn btn-success btn-lg btn-full" id="c-next"></button>
+      <button class="btn btn-outline btn-full" onclick="replayLesson()">🔄 שחק שוב</button>
+      <button class="btn btn-ghost btn-full" onclick="goTo('home')">🏠 חזרה לבית</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ DICTIONARY ══════════════════ -->
+<div id="screen-dict" class="screen">
+  <nav>
+    <button class="nav-btn" onclick="goTo('home')">←</button>
+    <div class="logo">🗂️ מילון</div>
+    <span class="badge badge-orange" id="d-due">0 לחזרה</span>
+  </nav>
+  <div class="container">
+    <div class="dict-body">
+      <div class="view-toggle">
+        <button class="tog-btn active" id="tb-browse" onclick="setView('browse')">📋 דפדוף</button>
+        <button class="tog-btn" id="tb-study" onclick="setView('study')">🎴 לימוד</button>
+      </div>
+      <div class="topic-scroll" id="d-topics"></div>
+
+      <!-- Browse view -->
+      <div id="v-browse">
+        <div style="font-size:13px;color:var(--gray-400)" id="d-wcount">0 מילים</div>
+        <div style="height:8px"></div>
+        <div class="word-list" id="d-wordlist"></div>
+      </div>
+
+      <!-- Study view -->
+      <div id="v-study" style="display:none">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <span class="badge badge-gray" id="d-cardcnt">1/10</span>
+          <button class="btn btn-ghost" style="padding:6px 12px;font-size:13px" onclick="setView('browse')">✕ סיום</button>
+        </div>
+        <div class="flashcard" id="d-card" onclick="flipCard()">
+          <div class="fc-hint">טוען...</div>
+        </div>
+        <div style="height:14px"></div>
+        <div class="grade-btns" id="d-grade" style="display:none">
+          <button class="gbtn g0" onclick="gradeCard(0)"><div class="ge">😟</div><div>לא ידעתי</div></button>
+          <button class="gbtn g1" onclick="gradeCard(1)"><div class="ge">😬</div><div>קשה</div></button>
+          <button class="gbtn g2" onclick="gradeCard(2)"><div class="ge">😊</div><div>ידעתי</div></button>
+          <button class="gbtn g3" onclick="gradeCard(3)"><div class="ge">🌟</div><div>קל!</div></button>
+        </div>
+        <p style="text-align:center;font-size:13px;color:var(--gray-400);margin-top:10px" id="d-flip-hint">לחץ על הכרטיס לראות תרגום</p>
+      </div>
+    </div>
+  </div>
+  <div class="bnav">
+    <button onclick="goTo('home')"><div class="bico">🏠</div><div>בית</div></button>
+    <button class="active"><div class="bico">🗂️</div><div>מילון</div></button>
+    <button onclick="goTo('settings')"><div class="bico">⚙️</div><div>הגדרות</div></button>
+  </div>
+</div>
+
+<!-- ══════════════════ SETTINGS ══════════════════ -->
+<div id="screen-settings" class="screen">
+  <nav>
+    <button class="nav-btn" onclick="goTo('home')">←</button>
+    <div class="logo">⚙️ הגדרות</div>
+    <div></div>
+  </nav>
+  <div class="container">
+    <div class="set-body">
+      <div class="set-group">
+        <div class="set-gtitle">🔊 שמע</div>
+        <div class="set-row">
+          <div class="sri"><div class="srn">הפעלת שמע</div><div class="srd">הקראת מילים ומשפטים</div></div>
+          <button class="toggle" id="tog-audio" onclick="toggleAudio()" role="switch"></button>
+        </div>
+        <div class="set-row">
+          <div class="sri" style="width:100%">
+            <div class="srn">מהירות קריאה: <span id="s-rate">0.9</span>x</div>
+            <input type="range" min="0.5" max="1.5" step="0.1" id="rate-sl" oninput="changeRate(this.value)">
+            <div class="range-lbl"><span>איטי</span><span>מהיר</span></div>
+          </div>
+        </div>
+        <div class="set-row">
+          <button class="btn btn-outline" style="padding:8px 16px;font-size:14px" onclick="testAudio()">▶ בדוק שמע</button>
+        </div>
+      </div>
+
+      <div class="set-group">
+        <div class="set-gtitle">🔒 נתונים ופרטיות</div>
+        <div class="set-row">
+          <div class="sri"><div class="srn">נתונים מקומיים בלבד</div><div class="srd">ללא שרת, ללא PII</div></div>
+          <span style="font-size:20px">🔒</span>
+        </div>
+        <div class="set-row" style="flex-direction:column;align-items:flex-start;gap:0">
+          <button class="btn btn-danger" style="padding:8px 16px;font-size:14px" onclick="showReset()">🗑️ איפוס כל הנתונים</button>
+          <div id="reset-box" style="display:none" class="reset-box">
+            <p>לאפס את כל ההתקדמות? לא ניתן לבטל!</p>
+            <div class="rb">
+              <button class="btn btn-danger" style="padding:8px 16px;font-size:14px" onclick="doReset()">כן, אפס</button>
+              <button class="btn btn-ghost" style="padding:8px 16px;font-size:14px" onclick="hideReset()">ביטול</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;font-size:12px;color:var(--gray-400);padding-top:4px">
+        פאר לימוד אנגלית · כיתה ה' · A1 · v1.0
+      </div>
+    </div>
+  </div>
+  <div class="bnav">
+    <button onclick="goTo('home')"><div class="bico">🏠</div><div>בית</div></button>
+    <button onclick="goTo('dict')"><div class="bico">🗂️</div><div>מילון</div></button>
+    <button class="active"><div class="bico">⚙️</div><div>הגדרות</div></button>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════════
+const VOCAB = [
+  {id:'s01',w:'school',   h:'בית ספר',    ex:'I go to school every day.',      t:'school',  e:'🏫'},
+  {id:'s02',w:'teacher',  h:'מורה',       ex:'My teacher is very nice.',       t:'school',  e:'👩‍🏫'},
+  {id:'s03',w:'book',     h:'ספר',        ex:'I read a book in class.',        t:'school',  e:'📖'},
+  {id:'s04',w:'pencil',   h:'עיפרון',     ex:'I write with a pencil.',         t:'school',  e:'✏️'},
+  {id:'s05',w:'notebook', h:'מחברת',      ex:'I write in my notebook.',        t:'school',  e:'📓'},
+  {id:'s06',w:'bag',      h:'תיק',        ex:'My bag is heavy.',               t:'school',  e:'🎒'},
+  {id:'s07',w:'ruler',    h:'סרגל',       ex:'I measure with a ruler.',        t:'school',  e:'📏'},
+  {id:'s08',w:'homework', h:'שיעורי בית', ex:'I do my homework after school.', t:'school',  e:'📋'},
+
+  {id:'f01',w:'mother',      h:'אמא',    ex:'My mother cooks dinner.',          t:'family',  e:'👩'},
+  {id:'f02',w:'father',      h:'אבא',    ex:'My father reads the newspaper.',   t:'family',  e:'👨'},
+  {id:'f03',w:'brother',     h:'אח',     ex:'My brother is ten years old.',     t:'family',  e:'👦'},
+  {id:'f04',w:'sister',      h:'אחות',   ex:'My sister is eight years old.',    t:'family',  e:'👧'},
+  {id:'f05',w:'grandmother', h:'סבתא',   ex:'My grandmother makes cookies.',    t:'family',  e:'👵'},
+  {id:'f06',w:'grandfather', h:'סבא',    ex:'My grandfather has a garden.',     t:'family',  e:'👴'},
+  {id:'f07',w:'baby',        h:'תינוק',  ex:'The baby sleeps a lot.',           t:'family',  e:'👶'},
+
+  {id:'fd01',w:'apple',    h:'תפוח',  ex:'I eat an apple every day.',     t:'food', e:'🍎'},
+  {id:'fd02',w:'bread',    h:'לחם',   ex:'I eat bread for breakfast.',    t:'food', e:'🍞'},
+  {id:'fd03',w:'milk',     h:'חלב',   ex:'I drink milk in the morning.',  t:'food', e:'🥛'},
+  {id:'fd04',w:'banana',   h:'בננה',  ex:'A banana is yellow.',           t:'food', e:'🍌'},
+  {id:'fd05',w:'sandwich', h:'כריך',  ex:'I bring a sandwich to school.', t:'food', e:'🥪'},
+  {id:'fd06',w:'pizza',    h:'פיצה',  ex:'Pizza is my favorite food.',    t:'food', e:'🍕'},
+  {id:'fd07',w:'juice',    h:'מיץ',   ex:'I drink orange juice.',         t:'food', e:'🧃'},
+  {id:'fd08',w:'egg',      h:'ביצה',  ex:'I eat an egg for breakfast.',   t:'food', e:'🥚'},
+
+  {id:'a01',w:'cat',      h:'חתול', ex:'My cat is black and white.',   t:'animals', e:'🐱'},
+  {id:'a02',w:'dog',      h:'כלב',  ex:'The dog runs fast.',           t:'animals', e:'🐶'},
+  {id:'a03',w:'bird',     h:'ציפור',ex:'A bird can fly.',              t:'animals', e:'🐦'},
+  {id:'a04',w:'fish',     h:'דג',   ex:'Fish live in water.',          t:'animals', e:'🐟'},
+  {id:'a05',w:'rabbit',   h:'ארנב', ex:'A rabbit has long ears.',      t:'animals', e:'🐰'},
+  {id:'a06',w:'elephant', h:'פיל',  ex:'An elephant is very big.',     t:'animals', e:'🐘'},
+  {id:'a07',w:'lion',     h:'אריה', ex:'A lion is the king of animals.',t:'animals',e:'🦁'},
+
+  {id:'c01',w:'red',    h:'אדום', ex:'The apple is red.',   t:'colors', e:'🔴'},
+  {id:'c02',w:'blue',   h:'כחול', ex:'The sky is blue.',    t:'colors', e:'🔵'},
+  {id:'c03',w:'green',  h:'ירוק', ex:'The grass is green.', t:'colors', e:'🟢'},
+  {id:'c04',w:'yellow', h:'צהוב', ex:'The sun is yellow.',  t:'colors', e:'🟡'},
+  {id:'c05',w:'black',  h:'שחור', ex:'The night is black.', t:'colors', e:'⬛'},
+  {id:'c06',w:'white',  h:'לבן',  ex:'Snow is white.',      t:'colors', e:'⬜'},
+
+  {id:'w01',w:'sunny',  h:'שמשי',  ex:'Today is sunny and warm.',  t:'weather', e:'☀️'},
+  {id:'w02',w:'rainy',  h:'גשום',  ex:'It is rainy today.',        t:'weather', e:'🌧️'},
+  {id:'w03',w:'cloudy', h:'מעונן', ex:'The sky is cloudy.',        t:'weather', e:'☁️'},
+  {id:'w04',w:'hot',    h:'חם',    ex:'Summer is hot.',            t:'weather', e:'🌡️'},
+  {id:'w05',w:'cold',   h:'קר',    ex:'Winter is cold.',           t:'weather', e:'❄️'},
+  {id:'w06',w:'windy',  h:'רוחות', ex:'It is windy today.',        t:'weather', e:'💨'},
+
+  {id:'h01',w:'house',   h:'בית',      ex:'I live in a big house.',     t:'home', e:'🏠'},
+  {id:'h02',w:'kitchen', h:'מטבח',     ex:'We cook in the kitchen.',    t:'home', e:'🍳'},
+  {id:'h03',w:'bedroom', h:'חדר שינה', ex:'I sleep in my bedroom.',     t:'home', e:'🛏️'},
+  {id:'h04',w:'door',    h:'דלת',      ex:'Please close the door.',     t:'home', e:'🚪'},
+  {id:'h05',w:'window',  h:'חלון',     ex:'The window is open.',        t:'home', e:'🪟'},
+  {id:'h06',w:'bed',     h:'מיטה',     ex:'My bed is comfortable.',     t:'home', e:'🛏️'},
+  {id:'h07',w:'table',   h:'שולחן',    ex:'We eat at the table.',       t:'home', e:'🪑'},
+];
+
+const TOPICS = {
+  school:'📚 בית ספר', family:'👨‍👩‍👧 משפחה', food:'🍎 אוכל',
+  animals:'🐱 חיות', colors:'🌈 צבעים', weather:'☀️ מזג אוויר', home:'🏠 בית'
+};
+
+const LESSONS = [
+  {id:'l1',title:'בבית הספר',sub:'At School',icon:'📚',
+   color:'linear-gradient(135deg,#60A5FA,#3B82F6)',
+   ex:[
+     {type:'mc',q:'teacher',   opts:['מורה','מחברת','עיפרון','תיק'],  ans:0, wid:'s02'},
+     {type:'mc',q:'notebook',  opts:['ספר','מחברת','תיק','עט'],       ans:1, wid:'s05'},
+     {type:'mc',q:'bag',       opts:['שולחן','ספר','תיק','מחברת'],    ans:2, wid:'s06'},
+     {type:'fill',sent:'I write with a ___.', word:'pencil',opts:['pencil','book','bag','ruler'],wid:'s04'},
+     {type:'mc',q:'homework',  opts:['שיעור','שיעורי בית','מורה','ספר'],ans:1,wid:'s08'},
+   ]},
+  {id:'l2',title:'המשפחה שלי',sub:'My Family',icon:'👨‍👩‍👧',
+   color:'linear-gradient(135deg,#C084FC,#8B5CF6)',
+   ex:[
+     {type:'mc',q:'mother',      opts:['אמא','אחות','סבתא','דודה'],   ans:0, wid:'f01'},
+     {type:'mc',q:'grandmother', opts:['אמא','דודה','סבתא','אחות'],   ans:2, wid:'f05'},
+     {type:'mc',q:'brother',     opts:['אח','אחות','בן','דוד'],       ans:0, wid:'f03'},
+     {type:'fill',sent:'The ___ sleeps a lot.',word:'baby',opts:['baby','mother','sister','father'],wid:'f07'},
+     {type:'mc',q:'grandfather', opts:['אח','אבא','דוד','סבא'],       ans:3, wid:'f06'},
+   ]},
+  {id:'l3',title:'אוכל טעים',sub:'Tasty Food',icon:'🍎',
+   color:'linear-gradient(135deg,#4ADE80,#22C55E)',
+   ex:[
+     {type:'mc',q:'apple',    opts:['בננה','גזר','תפוח','עוגה'],  ans:2, wid:'fd01'},
+     {type:'mc',q:'bread',    opts:['חלב','לחם','אורז','פיצה'],   ans:1, wid:'fd02'},
+     {type:'fill',sent:'I drink orange ___.',word:'juice',opts:['juice','milk','water','bread'],wid:'fd07'},
+     {type:'mc',q:'sandwich', opts:['כריך','פיצה','ביצה','חלב'],  ans:0, wid:'fd05'},
+     {type:'mc',q:'banana',   opts:['תפוח','מיץ','חלב','בננה'],   ans:3, wid:'fd04'},
+   ]},
+  {id:'l4',title:'חיות',sub:'Animals',icon:'🐱',
+   color:'linear-gradient(135deg,#FBBF24,#F59E0B)',
+   ex:[
+     {type:'mc',q:'elephant', opts:['אריה','פיל','קוף','סוס'],    ans:1, wid:'a06'},
+     {type:'mc',q:'rabbit',   opts:['ציפור','דג','ארנב','פרה'],   ans:2, wid:'a05'},
+     {type:'fill',sent:'A ___ can fly.',word:'bird',opts:['bird','cat','dog','horse'],wid:'a03'},
+     {type:'mc',q:'lion',     opts:['כלב','ארנב','אריה','דג'],    ans:2, wid:'a07'},
+     {type:'mc',q:'fish',     opts:['חתול','דג','ציפור','כלב'],   ans:1, wid:'a04'},
+   ]},
+  {id:'l5',title:'מזג האוויר',sub:'Weather',icon:'☀️',
+   color:'linear-gradient(135deg,#FB923C,#EF4444)',
+   ex:[
+     {type:'mc',q:'sunny',  opts:['גשום','שמשי','מעונן','רוחות'], ans:1, wid:'w01'},
+     {type:'mc',q:'cold',   opts:['חם','שמשי','קר','רוחות'],      ans:2, wid:'w05'},
+     {type:'fill',sent:'In winter it is very ___.',word:'cold',opts:['cold','hot','sunny','windy'],wid:'w05'},
+     {type:'mc',q:'rainy',  opts:['קר','שמשי','גשום','חם'],       ans:2, wid:'w02'},
+     {type:'mc',q:'hot',    opts:['קר','חם','שלג','רוחות'],       ans:1, wid:'w04'},
+   ]},
+  {id:'l6',title:'הבית שלי',sub:'My Home',icon:'🏠',
+   color:'linear-gradient(135deg,#34D399,#0D9488)',
+   ex:[
+     {type:'mc',q:'kitchen', opts:['מטבח','חדר','ספה','חלון'],          ans:0, wid:'h02'},
+     {type:'mc',q:'bedroom', opts:['מטבח','חדר שינה','חדר אמבטיה','גינה'],ans:1,wid:'h03'},
+     {type:'fill',sent:'I sleep in my ___.',word:'bed',opts:['bed','sofa','kitchen','door'],wid:'h06'},
+     {type:'mc',q:'window',  opts:['דלת','חלון','מיטה','שולחן'],         ans:1, wid:'h05'},
+     {type:'mc',q:'table',   opts:['מיטה','ספה','שולחן','דלת'],          ans:2, wid:'h07'},
+   ]},
+];
+
+// ═══════════════════════════════════════════════
+// STORAGE
+// ═══════════════════════════════════════════════
+const DEF_PROG = {streak:0,lastActive:'',totalXP:0,level:1,done:{},wLvl:{},wNext:{}};
+const DEF_SET  = {audioOn:true,rate:0.9};
+
+let prog = load('pp', DEF_PROG);
+let cfg  = load('ps', DEF_SET);
+
+function load(k,def){ try{return{...def,...JSON.parse(localStorage.getItem(k)||'{}')}}catch{return{...def}} }
+function save(k,v){ localStorage.setItem(k, JSON.stringify(v)); }
+function saveProg(){ save('pp', prog); }
+function saveCfg(){  save('ps', cfg);  }
+
+// ═══════════════════════════════════════════════
+// STREAK & XP
+// ═══════════════════════════════════════════════
+function today(){ return new Date().toISOString().slice(0,10); }
+function yest(){  const d=new Date(); d.setDate(d.getDate()-1); return d.toISOString().slice(0,10); }
+
+function tickStreak(){
+  const t=today();
+  if(prog.lastActive===t) return;
+  prog.streak = prog.lastActive===yest() ? prog.streak+1 : 1;
+  prog.lastActive = t;
+  saveProg();
+}
+function addXP(xp){
+  prog.totalXP = (prog.totalXP||0)+xp;
+  prog.level = Math.floor(prog.totalXP/100)+1;
+  saveProg();
+}
+function xpToNext(){ return 100-(prog.totalXP%100); }
+
+// ═══════════════════════════════════════════════
+// SRS
+// ═══════════════════════════════════════════════
+function addDays(n){ const d=new Date(); d.setDate(d.getDate()+Math.max(1,n)); return d.toISOString().slice(0,10); }
+function isDue(id){ const nx=prog.wNext[id]; return !nx||nx<=today(); }
+function dueCount(){ return VOCAB.filter(v=>isDue(v.id)).length; }
+function gradeWord(id, grade){
+  const intervals=[1,2,4,8,14,30];
+  let lvl=prog.wLvl[id]||0;
+  lvl = grade===0 ? Math.max(0,lvl-1) : Math.min(5,lvl+1);
+  prog.wLvl[id] = lvl;
+  prog.wNext[id] = addDays(grade===0?1:intervals[lvl]||1);
+  saveProg();
+}
+
+// ═══════════════════════════════════════════════
+// TTS
+// ═══════════════════════════════════════════════
+function speak(txt){
+  if(!cfg.audioOn||!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(txt);
+  u.lang='en-US'; u.rate=cfg.rate||0.9; u.pitch=1.1;
+  const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('en'));
+  if(v) u.voice=v;
+  speechSynthesis.speak(u);
+}
+
+// ═══════════════════════════════════════════════
+// ROUTER
+// ═══════════════════════════════════════════════
+function goTo(s){
+  document.querySelectorAll('.screen').forEach(el=>el.classList.remove('active'));
+  document.getElementById('screen-'+s).classList.add('active');
+  if(s==='home')     renderHome();
+  if(s==='dict')     renderDict();
+  if(s==='settings') renderSettings();
+}
+
+// ═══════════════════════════════════════════════
+// HOME
+// ═══════════════════════════════════════════════
+function renderHome(){
+  tickStreak();
+  document.getElementById('h-streak').textContent  = prog.streak;
+  document.getElementById('h-level').textContent   = prog.level;
+  document.getElementById('h-xp').textContent      = prog.totalXP;
+  document.getElementById('h-xp-next').textContent = xpToNext()+' XP לרמה הבאה';
+  document.getElementById('h-xp-bar').style.width  = (100-xpToNext())+'%';
+  document.getElementById('h-slessons').textContent = Object.keys(prog.done).length;
+  document.getElementById('h-sdue').textContent     = dueCount();
+  document.getElementById('h-sxp').textContent      = prog.totalXP;
+
+  // Mission card
+  const next = LESSONS.find(l=>!prog.done[l.id]);
+  const mEl = document.getElementById('h-mission');
+  if(next){
+    mEl.innerHTML=`
+      <div class="mission-card" style="background:${next.color}" onclick="startLesson('${next.id}')">
+        <div style="display:flex;align-items:center;gap:16px">
+          <div style="font-size:52px">${next.icon}</div>
+          <div style="flex:1">
+            <div style="font-size:22px;font-weight:900">${next.title}</div>
+            <div style="opacity:.8;font-size:14px;direction:ltr">${next.sub}</div>
+            <div style="opacity:.7;font-size:13px;margin-top:6px;display:flex;gap:12px">
+              <span>⏱ 5-7 דקות</span><span>•</span><span>${next.ex.length} תרגילים</span>
+            </div>
+          </div>
+          <div style="font-size:24px;opacity:.7">←</div>
+        </div>
+      </div>`;
+  } else {
+    mEl.innerHTML=`<div class="card" style="text-align:center;padding:28px">
+      <div style="font-size:40px;margin-bottom:8px">🏆</div>
+      <div style="font-weight:900;font-size:18px">סיימת את כל השיעורים!</div>
+      <div style="color:var(--gray-400);font-size:14px;margin-top:4px">תרגל אוצר מילים במילון</div>
+    </div>`;
+  }
+
+  // Lesson list
+  document.getElementById('h-lesson-list').innerHTML = LESSONS.map(l=>{
+    const d=prog.done[l.id];
+    return `<div class="lesson-item" onclick="startLesson('${l.id}')">
+      <div class="icon-wrap" style="background:${l.color}">${l.icon}</div>
+      <div class="info">
+        <div class="name">${l.title}</div>
+        <div class="sub">${l.sub}</div>
+        ${d?`<div style="margin-top:6px"><div class="pbar-track" style="height:5px"><div class="pbar-fill green" style="width:${d.score}%"></div></div></div>`:''}
+      </div>
+      <div style="font-size:18px">${d?'✅':'→'}</div>
+    </div>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════
+// LESSON
+// ═══════════════════════════════════════════════
+let LS = {lesson:null, idx:0, attempts:[], answered:false};
+
+function startLesson(id){
+  LS = {lesson:LESSONS.find(l=>l.id===id), idx:0, attempts:[], answered:false};
+  goTo('lesson');
+  document.getElementById('l-title').textContent = LS.lesson.icon+' '+LS.lesson.title;
+  updateLProg();
+  renderEx();
+}
+
+function updateLProg(){
+  const tot=LS.lesson.ex.length, idx=LS.idx, ok=LS.attempts.filter(a=>a.ok).length;
+  document.getElementById('l-cnt').textContent     = `${idx+1}/${tot}`;
+  document.getElementById('l-pbar').style.width    = `${(idx/tot)*100}%`;
+  document.getElementById('l-correct').textContent = ok;
+  document.getElementById('l-left').textContent    = tot-idx;
+}
+
+function renderEx(){
+  const ex=LS.lesson.ex[LS.idx];
+  const area=document.getElementById('ex-area');
+  document.getElementById('fb-area').style.display='none';
+  LS.answered=false;
+  area.className='ex-area anim-slide';
+
+  if(ex.type==='mc'){
+    area.innerHTML=`
+      <div class="ex-instr">מה פירוש המילה?</div>
+      <div class="q-box">
+        <div class="q-word">${ex.q}</div>
+        <div class="speak-btn" onclick="speak('${ex.q}')">🔊</div>
+      </div>
+      <div class="opts">
+        ${ex.opts.map((o,i)=>`<button class="opt" id="o${i}" onclick="answerMC(${i})">${o}</button>`).join('')}
+      </div>`;
+  } else {
+    const parts=ex.sent.split('___');
+    area.innerHTML=`
+      <div class="ex-instr">בחרו את המילה החסרה</div>
+      <div class="sent-box">
+        ${parts[0]}<span class="blank" id="bl">_____</span>${parts[1]||''}
+      </div>
+      <div class="wbank">
+        ${ex.opts.map(w=>`<button class="wbtn" id="wb-${w}" onclick="answerFill('${w}','${ex.word}')">${w}</button>`).join('')}
+      </div>`;
+  }
+}
+
+const OK_MSG  = ['כל הכבוד! 🎉','מעולה! 🌟','נכון מאוד! 👏','יפה מאוד! ✨'];
+const BAD_MSG = ['לא נכון, נסה שוב! 💪','כמעט! 🙂','ממשיכים ללמוד! 📖'];
+function rnd(a){ return a[Math.floor(Math.random()*a.length)]; }
+
+function answerMC(idx){
+  if(LS.answered) return;
+  LS.answered=true;
+  const ex=LS.lesson.ex[LS.idx], ok=idx===ex.ans;
+  document.querySelectorAll('.opt').forEach((b,i)=>{
+    b.disabled=true;
+    if(i===ex.ans) b.classList.add('correct');
+    else if(i===idx&&!ok) b.classList.add('wrong');
+    else b.classList.add('dim');
+  });
+  if(ok) speak(ex.q);
+  record(ok, ex.wid);
+  showFB(ok, ex.opts[ex.ans]);
+}
+
+function answerFill(chosen, correct){
+  if(LS.answered) return;
+  LS.answered=true;
+  const ok=chosen.toLowerCase()===correct.toLowerCase();
+  const bl=document.getElementById('bl');
+  bl.textContent=chosen; bl.classList.add(ok?'ok':'bad');
+  document.querySelectorAll('.wbtn').forEach(b=>{
+    b.disabled=true;
+    if(b.id==='wb-'+correct) b.classList.add('correct');
+    else if(b.id==='wb-'+chosen&&!ok) b.classList.add('wrong');
+    else b.classList.add('dim');
+  });
+  if(ok) speak(correct);
+  record(ok, LS.lesson.ex[LS.idx].wid);
+  showFB(ok, correct);
+}
+
+function record(ok, wid){
+  LS.attempts.push({ok});
+  if(wid) gradeWord(wid, ok?2:0);
+}
+
+function showFB(ok, correct){
+  const last=LS.idx>=LS.lesson.ex.length-1;
+  const fb=document.getElementById('fb-area');
+  fb.style.display='block';
+  fb.innerHTML=`
+    <div class="fb-banner ${ok?'ok':'bad'} anim-slide">
+      <span style="font-size:28px">${ok?'🎉':'💪'}</span>
+      <div>
+        <div class="fmsg">${ok?rnd(OK_MSG):rnd(BAD_MSG)}</div>
+        ${!ok?`<div class="fsub">התשובה הנכונה: <b>${correct}</b></div>`:''}
+        ${ok?`<div class="fsub">+10 נקודות</div>`:''}
+      </div>
+    </div>
+    <button class="btn ${last?'btn-success':'btn-primary'} btn-full btn-lg" onclick="nextEx()">
+      ${last?'סיום השיעור 🏆':'המשך ←'}
+    </button>`;
+}
+
+function nextEx(){
+  if(LS.idx>=LS.lesson.ex.length-1){ finishLesson(); return; }
+  LS.idx++;
+  updateLProg();
+  renderEx();
+}
+
+function finishLesson(){
+  const ok=LS.attempts.filter(a=>a.ok).length, tot=LS.attempts.length;
+  const pct=Math.round((ok/tot)*100);
+  const stars=pct>=90?3:pct>=60?2:1;
+  const xp=20+ok*5+(stars===3?15:stars===2?5:0);
+  prog.done[LS.lesson.id]={score:pct,stars};
+  addXP(xp);
+
+  const starsStr=['','⭐☆☆','⭐⭐☆','⭐⭐⭐'][stars];
+  const titles={1:'לא נורא! 💪',2:'יפה מאוד! 😊',3:'מדהים! 🌟🎉'};
+  document.getElementById('c-stars').textContent = starsStr;
+  document.getElementById('c-title').textContent = titles[stars];
+  document.getElementById('c-sub').textContent   = LS.lesson.icon+' '+LS.lesson.title;
+  document.getElementById('c-pct').textContent   = pct+'%';
+  document.getElementById('c-bar').style.width   = pct+'%';
+  document.getElementById('c-ok').textContent    = ok;
+  document.getElementById('c-err').textContent   = tot-ok;
+  document.getElementById('c-xp').textContent    = xp;
+
+  const nextL=LESSONS.find(l=>!prog.done[l.id]);
+  const nBtn=document.getElementById('c-next');
+  if(nextL){
+    nBtn.textContent=nextL.icon+' שיעור הבא: '+nextL.title+' →';
+    nBtn.onclick=()=>startLesson(nextL.id);
+    nBtn.style.display='';
+  } else { nBtn.style.display='none'; }
+
+  goTo('complete');
+}
+
+function replayLesson(){ startLesson(LS.lesson.id); }
+
+// ═══════════════════════════════════════════════
+// DICTIONARY
+// ═══════════════════════════════════════════════
+let DS = {view:'browse', topic:'all', cardIdx:0, flipped:false, list:[]};
+
+function renderDict(){
+  document.getElementById('d-due').textContent = dueCount()+' לחזרה';
+
+  // Topics
+  document.getElementById('d-topics').innerHTML =
+    `<button class="topic-chip ${DS.topic==='all'?'active':''}" onclick="setTopic('all')">כל הנושאים</button>`+
+    Object.entries(TOPICS).map(([k,v])=>
+      `<button class="topic-chip ${DS.topic===k?'active':''}" onclick="setTopic('${k}')">${v}</button>`
+    ).join('');
+
+  renderDictContent();
+}
+
+function setTopic(t){
+  DS.topic=t; DS.cardIdx=0; DS.flipped=false;
+  renderDict();
+}
+
+function setView(v){
+  DS.view=v; DS.cardIdx=0; DS.flipped=false;
+  document.getElementById('tb-browse').classList.toggle('active',v==='browse');
+  document.getElementById('tb-study').classList.toggle('active',v==='study');
+  document.getElementById('v-browse').style.display=v==='browse'?'':'none';
+  document.getElementById('v-study').style.display=v==='study'?'':'none';
+  if(v==='study'){ DS.list=filteredVocab(); renderCard(); }
+}
+
+function filteredVocab(){
+  return VOCAB.filter(v=>DS.topic==='all'||v.t===DS.topic);
+}
+
+function renderDictContent(){
+  const words=filteredVocab();
+  DS.list=words;
+  document.getElementById('d-wcount').textContent=words.length+' מילים';
+  document.getElementById('d-wordlist').innerHTML=words.map(v=>`
+    <div class="word-item">
+      <div class="wi-e">${v.e}</div>
+      <div class="wi-info">
+        <div class="wi-en">
+          ${v.w}
+          <span class="speak-mini" onclick="speak('${v.w}')">🔊</span>
+          ${isDue(v.id)?'<span style="color:var(--orange);font-size:13px">🔔</span>':''}
+        </div>
+        <div class="wi-he">${v.h}</div>
+        <div class="wi-ex">"${v.ex}"</div>
+      </div>
+      <span class="badge badge-gray" style="font-size:11px;flex-shrink:0">${TOPICS[v.t]||v.t}</span>
+    </div>`).join('');
+  if(DS.view==='study') renderCard();
+}
+
+function renderCard(){
+  const words=DS.list;
+  if(!words.length){
+    document.getElementById('d-card').innerHTML='<div style="color:var(--gray-400)">אין מילים</div>';
+    return;
+  }
+  const w=words[DS.cardIdx%words.length];
+  document.getElementById('d-cardcnt').textContent=`${DS.cardIdx+1}/${words.length}`;
+  document.getElementById('d-grade').style.display='none';
+  document.getElementById('d-flip-hint').style.display='';
+  DS.flipped=false;
+  const card=document.getElementById('d-card');
+  card.style.background=''; card.style.borderColor='';
+  card.innerHTML=`
+    <div class="fc-emoji">${w.e}</div>
+    <div class="fc-en">${w.w}</div>
+    ${isDue(w.id)?'<span class="badge badge-orange">לחזרה היום 🔔</span>':''}
+    <div class="fc-hint">לחץ לראות תרגום</div>`;
+  card.className='flashcard anim-pop';
+}
+
+function flipCard(){
+  if(DS.flipped) return;
+  DS.flipped=true;
+  const w=DS.list[DS.cardIdx%DS.list.length];
+  const card=document.getElementById('d-card');
+  card.style.background='linear-gradient(135deg,#F5F3FF,#EDE9FE)';
+  card.style.borderColor='#C4B5FD';
+  card.innerHTML=`
+    <div class="fc-emoji">${w.e}</div>
+    <div class="fc-he">${w.h}</div>
+    <div style="width:40px;border-top:2px solid #C4B5FD;margin:4px auto"></div>
+    <div class="fc-ex">"${w.ex}"</div>
+    <div style="font-size:20px;cursor:pointer;margin-top:4px" onclick="speak('${w.w}')">🔊</div>`;
+  card.className='flashcard anim-pop';
+  document.getElementById('d-grade').style.display='grid';
+  document.getElementById('d-flip-hint').style.display='none';
+}
+
+function gradeCard(grade){
+  const w=DS.list[DS.cardIdx%DS.list.length];
+  gradeWord(w.id, grade);
+  if(DS.cardIdx<DS.list.length-1){
+    DS.cardIdx++;
+    const card=document.getElementById('d-card');
+    card.style.background=''; card.style.borderColor='';
+    renderCard();
+  } else {
+    document.getElementById('d-card').innerHTML=`
+      <div style="font-size:46px;margin-bottom:8px">🎉</div>
+      <div style="font-weight:900;font-size:20px">סיימת!</div>
+      <div style="color:var(--gray-400);font-size:14px;margin-top:4px">תרגלת ${DS.list.length} מילים</div>`;
+    document.getElementById('d-grade').style.display='none';
+    document.getElementById('d-flip-hint').style.display='none';
+    DS.cardIdx=0;
+  }
+  document.getElementById('d-due').textContent=dueCount()+' לחזרה';
+}
+
+// ═══════════════════════════════════════════════
+// SETTINGS
+// ═══════════════════════════════════════════════
+function renderSettings(){
+  document.getElementById('tog-audio').classList.toggle('on', cfg.audioOn);
+  document.getElementById('rate-sl').value=cfg.rate;
+  document.getElementById('s-rate').textContent=cfg.rate;
+}
+function toggleAudio(){
+  cfg.audioOn=!cfg.audioOn; saveCfg();
+  document.getElementById('tog-audio').classList.toggle('on', cfg.audioOn);
+}
+function changeRate(v){
+  cfg.rate=parseFloat(v); saveCfg();
+  document.getElementById('s-rate').textContent=cfg.rate;
+}
+function testAudio(){ speak('Hello! My name is Dan. I go to school every day.'); }
+function showReset(){ document.getElementById('reset-box').style.display=''; }
+function hideReset(){ document.getElementById('reset-box').style.display='none'; }
+function doReset(){
+  prog={...DEF_PROG}; saveProg();
+  hideReset(); goTo('home');
+}
+
+// ═══════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════
+if('speechSynthesis' in window){
+  speechSynthesis.getVoices();
+  speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices();
+}
+goTo('home');
+</script>
+</body>
+</html>
