@@ -291,8 +291,8 @@ export default function WordRacePage() {
 
   function handleDone(entries: WordEntry[], totalXP: number) {
     saveScore(GAME_ID, difficulty, totalXP);
-    addPoints(totalXP);
-    checkAndUnlock();
+    const updated = addPoints(totalXP);
+    if (updated) checkAndUnlock(updated);
     setResults({ entries, totalXP });
     setPhase("results");
   }

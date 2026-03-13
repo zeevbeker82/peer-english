@@ -262,8 +262,8 @@ export default function SpeedTranslationPage() {
 
   function handleDone(r: SentResult[], xp: number) {
     saveScore(GAME_ID, difficulty, xp);
-    addPoints(xp);
-    checkAndUnlock();
+    const updated = addPoints(xp);
+    if (updated) checkAndUnlock(updated);
     setResults({ results: r, totalXP: xp });
     setPhase("results");
   }

@@ -255,8 +255,8 @@ export default function CategoryChallengePage() {
 
   function handleDone(r: CatResult) {
     saveScore(GAME_ID, difficulty, r.totalXP);
-    addPoints(r.totalXP);
-    checkAndUnlock();
+    const updated = addPoints(r.totalXP);
+    if (updated) checkAndUnlock(updated);
     setResult(r);
     setPhase("results");
   }

@@ -219,8 +219,8 @@ export default function GrammarNinjaPage() {
 
   function handleDone(r: RoundResult[], xp: number) {
     saveScore(GAME_ID, difficulty, xp);
-    addPoints(xp);
-    checkAndUnlock();
+    const updated = addPoints(xp);
+    if (updated) checkAndUnlock(updated);
     setResults({ results: r, totalXP: xp });
     setPhase("results");
   }

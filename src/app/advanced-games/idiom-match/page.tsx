@@ -254,8 +254,8 @@ export default function IdiomMatchPage() {
 
   function handleDone(r: MatchResult) {
     saveScore(GAME_ID, difficulty, r.totalXP);
-    addPoints(r.totalXP);
-    checkAndUnlock();
+    const updated = addPoints(r.totalXP);
+    if (updated) checkAndUnlock(updated);
     setResult(r);
     setPhase("results");
   }
