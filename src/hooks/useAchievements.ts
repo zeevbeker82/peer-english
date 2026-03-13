@@ -6,15 +6,17 @@ import {
   type AchievementProgress,
 } from "@/lib/content/achievements";
 import { getUnlockedIds, addUnlockedIds } from "@/lib/storage/achievements";
+import { loadProgress } from "@/lib/storage/progress";
 import { LESSONS } from "@/lib/content/lessons";
 
 export function useAchievements() {
   const [newlyUnlocked, setNewlyUnlocked] = useState<Achievement[]>([]);
 
-  const checkAndUnlock = useCallback((progress: AchievementProgress) => {
+  const checkAndUnlock = useCallback((progress?: Omit<AchievementProgress, "totalLessons">) => {
+    const p = progress ?? loadProgress();
     const alreadyUnlocked = getUnlockedIds();
     const toUnlock = checkNewAchievements(
-      { ...progress, totalLessons: LESSONS.length },
+      { ...p, totalLessons: LESSONS.length },
       alreadyUnlocked
     );
     if (toUnlock.length > 0) {
