@@ -220,6 +220,119 @@ export const ACHIEVEMENTS: Achievement[] = [
     icon: "🔥",
     category: "points",
   },
+  {
+    id: "points-10000",
+    title_he: "מאסטר",
+    description_he: "הגיע ל-10,000 נקודות",
+    icon: "🎓",
+    category: "points",
+  },
+  {
+    id: "points-15000",
+    title_he: "גרנד מאסטר",
+    description_he: "הגיע ל-15,000 נקודות",
+    icon: "💎",
+    category: "points",
+  },
+  {
+    id: "points-22000",
+    title_he: "גיבור אנגלית",
+    description_he: "הגיע ל-22,000 נקודות",
+    icon: "⚡",
+    category: "points",
+  },
+  {
+    id: "points-31000",
+    title_he: "אלוף עולם",
+    description_he: "הגיע ל-31,000 נקודות",
+    icon: "🌍",
+    category: "points",
+  },
+  {
+    id: "points-55000",
+    title_he: "סופר-גיבור",
+    description_he: "הגיע ל-55,000 נקודות",
+    icon: "🦸",
+    category: "points",
+  },
+  {
+    id: "points-87000",
+    title_he: "נביא",
+    description_he: "הגיע ל-87,000 נקודות",
+    icon: "🌠",
+    category: "points",
+  },
+  {
+    id: "points-130000",
+    title_he: "בלתי מנוצח",
+    description_he: "הגיע ל-130,000 נקודות",
+    icon: "🌌",
+    category: "points",
+  },
+  {
+    id: "points-160000",
+    title_he: "אל האנגלית",
+    description_he: "הגיע ל-160,000 נקודות",
+    icon: "✨",
+    category: "points",
+  },
+  // 8 new pronunciation & speaking games achievements
+  {
+    id: "shadow-starter",
+    title_he: "צולל לצלילים",
+    description_he: "השלמת 10 תרגילי דיבור",
+    icon: "🎙️",
+    category: "skills",
+  },
+  {
+    id: "pronunciation-pro",
+    title_he: "מאסטר הגייה",
+    description_he: "השלמת 25 תרגילי הגייה",
+    icon: "🗣️",
+    category: "skills",
+  },
+  {
+    id: "tongue-twister-champ",
+    title_he: "אלוף מפשלי הלשון",
+    description_he: "הצלחת במפשלי לשון",
+    icon: "👅",
+    category: "skills",
+  },
+  {
+    id: "daily-speaker",
+    title_he: "דובר יומי",
+    description_he: "דיברת אנגלית 7 פעמים",
+    icon: "📅",
+    category: "skills",
+  },
+  {
+    id: "word-chain-master",
+    title_he: "אלוף השרשרת",
+    description_he: "השגת שרשרת ארוכה",
+    icon: "🔗",
+    category: "skills",
+  },
+  {
+    id: "storyteller",
+    title_he: "מספר סיפורים",
+    description_he: "השלמת 15 פעילויות דיבור",
+    icon: "📖",
+    category: "skills",
+  },
+  {
+    id: "picture-describer",
+    title_he: "מתאר מצייר",
+    description_he: "תיארת 20 סצנות באנגלית",
+    icon: "🖼️",
+    category: "skills",
+  },
+  {
+    id: "english-speaker",
+    title_he: "דובר אנגלית אמיתי",
+    description_he: "השלמת 50 פעילויות דיבור",
+    icon: "🌟",
+    category: "skills",
+  },
 ];
 
 /** Progress fields needed for achievement checks */
@@ -279,6 +392,22 @@ function meetsCondition(id: string, p: AchievementProgress): boolean {
     case "speaking-20":    return p.speakingDone >= 20;
     case "points-3000":    return p.totalXP >= 3000;
     case "points-5000":    return p.totalXP >= 5000;
+    case "points-10000":   return p.totalXP >= 10000;
+    case "points-15000":   return p.totalXP >= 15000;
+    case "points-22000":   return p.totalXP >= 22000;
+    case "points-31000":   return p.totalXP >= 31000;
+    case "points-55000":   return p.totalXP >= 55000;
+    case "points-87000":   return p.totalXP >= 87000;
+    case "points-130000":  return p.totalXP >= 130000;
+    case "points-160000":  return p.totalXP >= 160000;
+    case "shadow-starter":       return p.speakingDone >= 10;
+    case "pronunciation-pro":    return p.speakingDone >= 25;
+    case "tongue-twister-champ": return p.totalXP >= 500;
+    case "daily-speaker":        return p.speakingDone >= 7;
+    case "word-chain-master":    return p.totalXP >= 1000;
+    case "storyteller":          return p.speakingDone >= 15;
+    case "picture-describer":    return p.speakingDone >= 20;
+    case "english-speaker":      return p.speakingDone >= 50;
     default:               return false;
   }
 }

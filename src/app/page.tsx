@@ -22,6 +22,10 @@ import { getCompletedChallengesCount } from "@/lib/storage/weekly-challenges";
 import { CHALLENGE_TOTAL } from "@/lib/content/weekly-challenges";
 import { getTotalGamesPlayed } from "@/lib/storage/advanced-games";
 import { getCEFR } from "@/lib/storage/dashboard";
+import { getPronStats } from "@/lib/storage/pronunciation";
+import { getSpeakingGamesStats } from "@/lib/storage/speaking-games";
+import { getWW2TanksStats } from "@/lib/storage/ww2-tanks";
+import { getWW1TanksStats } from "@/lib/storage/ww1-tanks";
 
 // ─── Module definitions ─────────────────────────────────────────────────────
 const MODULES = [
@@ -139,11 +143,43 @@ const MODULES = [
     isAnchor: false,
   },
   {
+    href: "/pronunciation",
+    icon: "🗣️",
+    title_he: "אימון הגייה",
+    desc_he: "Shadow Me · מפשלי לשון · זוגות",
+    color: "from-orange-400 to-amber-500",
+    isAnchor: false,
+  },
+  {
+    href: "/speaking-games",
+    icon: "🎮",
+    title_he: "משחקי דיבור",
+    desc_he: "תאר · ספר · שאלת היום · שרשרת",
+    color: "from-teal-400 to-cyan-600",
+    isAnchor: false,
+  },
+  {
     href: "/dashboard",
     icon: "📊",
     title_he: "דשבורד התקדמות",
     desc_he: "CEFR · גרפים · יעדים · דוח",
     color: "from-cyan-500 to-teal-600",
+    isAnchor: false,
+  },
+  {
+    href: "/ww2-tanks",
+    icon: "🪖",
+    title_he: 'טנקי מלח"ע 2',
+    desc_he: "58 טנקים · קוויז תמונות",
+    color: "from-gray-700 to-gray-900",
+    isAnchor: false,
+  },
+  {
+    href: "/ww1-tanks",
+    icon: "🎖️",
+    title_he: 'טנקי מלח"ע 1',
+    desc_he: "~18 טנקים · קוויז תמונות",
+    color: "from-stone-700 to-amber-900",
     isAnchor: false,
   },
 ] as const;
@@ -172,6 +208,10 @@ export default function HomePage() {
   const [grammarDoneCount,   setGrammarDoneCount]   = useState(0);
   const [challengesDoneCount, setChallengesDoneCount] = useState(0);
   const [gamesPlayedCount,    setGamesPlayedCount]    = useState(0);
+  const [pronXP, setPronXP] = useState(0);
+  const [speakingGamesXP, setSpeakingGamesXP] = useState(0);
+  const [tanksXP, setTanksXP] = useState(0);
+  const [ww1TanksXP, setWW1TanksXP] = useState(0);
 
   useEffect(() => {
     setUnlockedCount(getUnlockedIds().length);
@@ -182,6 +222,14 @@ export default function HomePage() {
     setGrammarDoneCount(getCompletedTopicsCount());
     setChallengesDoneCount(getCompletedChallengesCount());
     setGamesPlayedCount(getTotalGamesPlayed());
+    const pronStats = getPronStats();
+    setPronXP(pronStats.totalXP);
+    const sgStats = getSpeakingGamesStats();
+    setSpeakingGamesXP(sgStats.totalXP);
+    const tanksStats = getWW2TanksStats();
+    setTanksXP(tanksStats.xp);
+    const ww1Stats = getWW1TanksStats();
+    setWW1TanksXP(ww1Stats.xp);
   }, []);
 
   if (!progress) {
@@ -360,9 +408,33 @@ export default function HomePage() {
                       <span className="text-xs font-bold">{gamesPlayedCount > 0 ? `${gamesPlayedCount} סיבובים 🎮` : "חדש! 🎮"}</span>
                     </div>
                   )}
+                  {mod.href === "/pronunciation" && pronXP > 0 && (
+                    <div className="mt-2 bg-white/20 rounded-full px-2 py-0.5 inline-block">
+                      <span className="text-xs font-bold">{pronXP} XP 🗣️</span>
+                    </div>
+                  )}
+                  {mod.href === "/speaking-games" && speakingGamesXP > 0 && (
+                    <div className="mt-2 bg-white/20 rounded-full px-2 py-0.5 inline-block">
+                      <span className="text-xs font-bold">{speakingGamesXP} XP 🎮</span>
+                    </div>
+                  )}
                   {mod.href === "/dashboard" && (
                     <div className="mt-2 bg-white/20 rounded-full px-2 py-0.5 inline-block">
                       <span className="text-xs font-bold">רמה {getCEFR(progress.totalXP).level} 📊</span>
+                    </div>
+                  )}
+                  {mod.href === "/ww2-tanks" && (
+                    <div className="mt-2 bg-white/20 rounded-full px-2 py-0.5 inline-block">
+                      <span className="text-xs font-bold">
+                        {tanksXP > 0 ? `${tanksXP} XP 🪖` : "חדש! 🔥"}
+                      </span>
+                    </div>
+                  )}
+                  {mod.href === "/ww1-tanks" && (
+                    <div className="mt-2 bg-white/20 rounded-full px-2 py-0.5 inline-block">
+                      <span className="text-xs font-bold">
+                        {ww1TanksXP > 0 ? `${ww1TanksXP} XP 🎖️` : "חדש! 🎖️"}
+                      </span>
                     </div>
                   )}
                 </div>

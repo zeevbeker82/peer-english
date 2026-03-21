@@ -2,7 +2,11 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import Link from "next/link";
 import {
-  DAILY_EXPRESSIONS, DIALOGUES, QA_QUESTIONS, ROLE_PLAYS, SPEAKING_XP,
+  DAILY_EXPRESSIONS, DAILY_EXPRESSIONS_2,
+  DIALOGUES, DIALOGUES_2,
+  QA_QUESTIONS, QA_QUESTIONS_2,
+  ROLE_PLAYS, ROLE_PLAYS_2,
+  SPEAKING_XP,
   type SpeakingExpression, type InteractiveDialogue, type QAQuestion, type RolePlay,
 } from "@/lib/content/speaking";
 import {
@@ -17,6 +21,11 @@ import { useAudio } from "@/hooks/useAudio";
 import { Confetti } from "@/components/ui/Confetti";
 import { AchievementPopup } from "@/components/ui/AchievementPopup";
 
+const ALL_EXPRESSIONS: SpeakingExpression[] = [...DAILY_EXPRESSIONS, ...DAILY_EXPRESSIONS_2];
+const ALL_DIALOGUES: InteractiveDialogue[] = [...DIALOGUES, ...DIALOGUES_2];
+const ALL_QA: QAQuestion[] = [...QA_QUESTIONS, ...QA_QUESTIONS_2];
+const ALL_ROLE_PLAYS: RolePlay[] = [...ROLE_PLAYS, ...ROLE_PLAYS_2];
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 type Stage = "home" | "expressions" | "dialogues" | "qa" | "roleplay" | "buddy";
 
@@ -26,7 +35,7 @@ function HomeView({ onSelect }: { onSelect: (s: Stage) => void }) {
     {
       id: "expressions" as Stage,
       title_he: "ביטויים יומיומיים",
-      subtitle_he: "30 ביטויים חיוניים",
+      subtitle_he: "45 ביטויים חיוניים",
       icon: "💬",
       color: "from-blue-400 to-blue-600",
       xp: "5 נק' לביטוי",
@@ -34,7 +43,7 @@ function HomeView({ onSelect }: { onSelect: (s: Stage) => void }) {
     {
       id: "dialogues" as Stage,
       title_he: "דיאלוגים אינטראקטיביים",
-      subtitle_he: "5 שיחות אמיתיות",
+      subtitle_he: "13 שיחות אמיתיות",
       icon: "🗣️",
       color: "from-purple-400 to-violet-600",
       xp: "20 נק' לדיאלוג",
@@ -42,7 +51,7 @@ function HomeView({ onSelect }: { onSelect: (s: Stage) => void }) {
     {
       id: "qa" as Stage,
       title_he: "שאלות ותשובות",
-      subtitle_he: "10 שאלות לתרגול",
+      subtitle_he: "25 שאלות לתרגול",
       icon: "🙋",
       color: "from-orange-400 to-amber-500",
       xp: "10 נק' לשאלה",
@@ -50,7 +59,7 @@ function HomeView({ onSelect }: { onSelect: (s: Stage) => void }) {
     {
       id: "roleplay" as Stage,
       title_he: "משחק תפקידים",
-      subtitle_he: "2 תרחישים מהחיים",
+      subtitle_he: "4 תרחישים מהחיים",
       icon: "🎭",
       color: "from-green-400 to-teal-600",
       xp: "30 נק' לתרחיש",
@@ -134,8 +143,8 @@ function ExpressionsView({
   const { settings } = useSettings();
   const { sayWord, canSpeak } = useAudio(settings);
 
-  const expr = DAILY_EXPRESSIONS[idx];
-  const total = DAILY_EXPRESSIONS.length;
+  const expr = ALL_EXPRESSIONS[idx];
+  const total = ALL_EXPRESSIONS.length;
   const categoryColors: Record<string, string> = {
     greetings: "bg-blue-100 text-blue-700",
     reactions: "bg-purple-100 text-purple-700",
@@ -278,7 +287,7 @@ function DialoguesView({
   const { settings } = useSettings();
   const { sayWord, canSpeak } = useAudio(settings);
 
-  const dialogue = DIALOGUES[dialIdx];
+  const dialogue = ALL_DIALOGUES[dialIdx];
 
   const handleChoiceSelect = (choiceIdx: number) => {
     if (showFeedback) return;
@@ -317,11 +326,11 @@ function DialoguesView({
           <button onClick={onBack} className="text-2xl p-1 rounded-full hover:bg-gray-100">←</button>
           <div>
             <p className="font-bold text-gray-800 text-sm">🗣️ דיאלוגים אינטראקטיביים</p>
-            <p className="text-xs text-gray-400">{DIALOGUES.length} דיאלוגים</p>
+            <p className="text-xs text-gray-400">{ALL_DIALOGUES.length} דיאלוגים</p>
           </div>
         </nav>
         <div className="max-w-lg mx-auto px-4 pt-5 space-y-3">
-          {DIALOGUES.map((d, i) => (
+          {ALL_DIALOGUES.map((d, i) => (
             <button
               key={d.id}
               onClick={() => {
@@ -520,8 +529,8 @@ function QAView({
   const { settings } = useSettings();
   const { sayWord, canSpeak } = useAudio(settings);
 
-  const q = QA_QUESTIONS[idx];
-  const total = QA_QUESTIONS.length;
+  const q = ALL_QA[idx];
+  const total = ALL_QA.length;
 
   const handleDone = () => {
     if (!done.has(q.id)) {
@@ -640,7 +649,7 @@ function RolePlayView({
   const { settings } = useSettings();
   const { sayWord, canSpeak } = useAudio(settings);
 
-  const rp = ROLE_PLAYS[rpIdx];
+  const rp = ALL_ROLE_PLAYS[rpIdx];
 
   const handleChoice = (i: number) => {
     if (showFeedback) return;
@@ -672,11 +681,11 @@ function RolePlayView({
           <button onClick={onBack} className="text-2xl p-1 rounded-full hover:bg-gray-100">←</button>
           <div>
             <p className="font-bold text-sm text-gray-800">🎭 משחק תפקידים</p>
-            <p className="text-xs text-gray-400">{ROLE_PLAYS.length} תרחישים</p>
+            <p className="text-xs text-gray-400">{ALL_ROLE_PLAYS.length} תרחישים</p>
           </div>
         </nav>
         <div className="max-w-lg mx-auto px-4 pt-5 space-y-3">
-          {ROLE_PLAYS.map((r, i) => (
+          {ALL_ROLE_PLAYS.map((r, i) => (
             <button
               key={r.id}
               onClick={() => { setRpIdx(i); setStepIdx(0); setChosen(null); setShowFeedback(false); setStage("play"); }}

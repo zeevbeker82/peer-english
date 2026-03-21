@@ -5,16 +5,26 @@ const PROGRESS_KEY = "peer_english_progress";
 // ─── Level thresholds ────────────────────────────────────────────────────────
 
 export const LEVEL_THRESHOLDS = [
-  { level: 1,  min: 0,     max: 200,      label: "מתחיל",         emoji: "🌱" },
-  { level: 2,  min: 201,   max: 500,      label: "לומד",          emoji: "🌿" },
-  { level: 3,  min: 501,   max: 1000,     label: "מתקדם",         emoji: "🌳" },
-  { level: 4,  min: 1001,  max: 1800,     label: "מיומן",         emoji: "⭐" },
-  { level: 5,  min: 1801,  max: 2800,     label: "מנוסה",         emoji: "🌟" },
-  { level: 6,  min: 2801,  max: 4000,     label: "מומחה",         emoji: "💫" },
-  { level: 7,  min: 4001,  max: 5500,     label: "אלוף",          emoji: "🔥" },
-  { level: 8,  min: 5501,  max: 7500,     label: "גאון",          emoji: "👑" },
-  { level: 9,  min: 7501,  max: 10000,    label: "אלוף האנגלית",  emoji: "🏆" },
-  { level: 10, min: 10001, max: Infinity, label: "מאסטר",         emoji: "🎓" },
+  { level: 1,  min: 0,       max: 200,      label: "מתחיל",         emoji: "🌱" },
+  { level: 2,  min: 201,     max: 500,      label: "לומד",          emoji: "🌿" },
+  { level: 3,  min: 501,     max: 1000,     label: "מתקדם",         emoji: "🌳" },
+  { level: 4,  min: 1001,    max: 1800,     label: "מיומן",         emoji: "⭐" },
+  { level: 5,  min: 1801,    max: 2800,     label: "מנוסה",         emoji: "🌟" },
+  { level: 6,  min: 2801,    max: 4000,     label: "מומחה",         emoji: "💫" },
+  { level: 7,  min: 4001,    max: 5500,     label: "אלוף",          emoji: "🔥" },
+  { level: 8,  min: 5501,    max: 7500,     label: "גאון",          emoji: "👑" },
+  { level: 9,  min: 7501,    max: 10000,    label: "אלוף האנגלית",  emoji: "🏆" },
+  { level: 10, min: 10001,   max: 15000,    label: "מאסטר",         emoji: "🎓" },
+  { level: 11, min: 15001,   max: 22000,    label: "גרנד מאסטר",    emoji: "💎" },
+  { level: 12, min: 22001,   max: 31000,    label: "גיבור אנגלית",  emoji: "⚡" },
+  { level: 13, min: 31001,   max: 42000,    label: "אלוף עולם",     emoji: "🌍" },
+  { level: 14, min: 42001,   max: 55000,    label: "סופר-גיבור",   emoji: "🦸" },
+  { level: 15, min: 55001,   max: 70000,    label: "מיתולוגי",      emoji: "🔱" },
+  { level: 16, min: 70001,   max: 87000,    label: "נביא",          emoji: "🌠" },
+  { level: 17, min: 87001,   max: 107000,   label: "אגדה",          emoji: "🐉" },
+  { level: 18, min: 107001,  max: 130000,   label: "בלתי מנוצח",   emoji: "🌌" },
+  { level: 19, min: 130001,  max: 160000,   label: "מיתוס",         emoji: "🪐" },
+  { level: 20, min: 160001,  max: Infinity, label: "אל האנגלית",   emoji: "✨👑✨" },
 ] as const;
 
 export type LevelInfo = {

@@ -672,6 +672,108 @@ export const VOCABULARY: VocabularyItem[] = [
   { id: "hobby-23", word: "origami", translation_he: "אוריגמי", example_sentence_en: "I make animals with origami.", audioText: "origami", topic: "hobbies", difficulty: "A1", emoji: "🦢" },
   { id: "hobby-24", word: "board games", translation_he: "משחקי קופסה", example_sentence_en: "We play board games on rainy days.", audioText: "board games", topic: "hobbies", difficulty: "A1", emoji: "🎲" },
   { id: "hobby-25", word: "volunteering", translation_he: "התנדבות", example_sentence_en: "I enjoy volunteering at the animal shelter.", audioText: "volunteering", topic: "hobbies", difficulty: "A1", emoji: "🤝" },
+
+  // ─── SCHOOL (additional words) ────────────────────────────────────────────
+  { id: "school-44", word: "scissors", translation_he: "מספריים", example_sentence_en: "I cut paper with scissors.", audioText: "scissors", topic: "school", difficulty: "A2", emoji: "✂️" },
+  { id: "school-45", word: "glue", translation_he: "דבק", example_sentence_en: "I use glue to stick the paper.", audioText: "glue", topic: "school", difficulty: "A2", emoji: "🗂️" },
+  { id: "school-46", word: "calculator", translation_he: "מחשבון", example_sentence_en: "I use a calculator in math class.", audioText: "calculator", topic: "school", difficulty: "A2", emoji: "🔢" },
+  { id: "school-47", word: "dictionary", translation_he: "מילון", example_sentence_en: "I look up words in the dictionary.", audioText: "dictionary", topic: "school", difficulty: "A2", emoji: "📖" },
+  { id: "school-48", word: "project", translation_he: "פרויקט", example_sentence_en: "Our class project is about animals.", audioText: "project", topic: "school", difficulty: "A2", emoji: "📋" },
+
+  // ─── FOOD (additional words) ──────────────────────────────────────────────
+  { id: "food-42", word: "chocolate", translation_he: "שוקולד", example_sentence_en: "I love chocolate cake.", audioText: "chocolate", topic: "food", difficulty: "A1", emoji: "🍫" },
+  { id: "food-43", word: "cookie", translation_he: "עוגייה", example_sentence_en: "Grandma baked cookies for us.", audioText: "cookie", topic: "food", difficulty: "A1", emoji: "🍪" },
+  { id: "food-44", word: "yogurt", translation_he: "יוגורט", example_sentence_en: "I eat yogurt for breakfast.", audioText: "yogurt", topic: "food", difficulty: "A1", emoji: "🥛" },
+  { id: "food-45", word: "cereal", translation_he: "דגני בוקר", example_sentence_en: "I eat cereal with milk.", audioText: "cereal", topic: "food", difficulty: "A1", emoji: "🥣" },
+
+  // ─── ANIMALS (additional words) ───────────────────────────────────────────
+  { id: "animals-36", word: "zebra", translation_he: "זברה", example_sentence_en: "A zebra has black and white stripes.", audioText: "zebra", topic: "animals", difficulty: "A1", emoji: "🦓" },
+  { id: "animals-37", word: "parrot", translation_he: "תוכי", example_sentence_en: "The parrot can talk.", audioText: "parrot", topic: "animals", difficulty: "A2", emoji: "🦜" },
+
+  // ─── BODY (additional words) ──────────────────────────────────────────────
+  { id: "body-26", word: "wrist", translation_he: "שורש כף היד", example_sentence_en: "I wear a watch on my wrist.", audioText: "wrist", topic: "body", difficulty: "A2", emoji: "⌚" },
+  { id: "body-27", word: "ankle", translation_he: "קרסול", example_sentence_en: "I twisted my ankle playing football.", audioText: "ankle", topic: "body", difficulty: "A2", emoji: "🦶" },
+  { id: "body-28", word: "lip", translation_he: "שפה", example_sentence_en: "I put lip balm on my lips.", audioText: "lip", topic: "body", difficulty: "A2", emoji: "👄" },
+
+  // ─── HOME (additional words) ──────────────────────────────────────────────
+  { id: "home-12", word: "ceiling", translation_he: "תקרה", example_sentence_en: "The ceiling is painted white.", audioText: "ceiling", topic: "home", difficulty: "A2", emoji: "🏠" },
+  { id: "home-13", word: "floor", translation_he: "רצפה", example_sentence_en: "The floor is clean.", audioText: "floor", topic: "home", difficulty: "A2", emoji: "🪵" },
+  { id: "home-14", word: "wall", translation_he: "קיר", example_sentence_en: "I hang pictures on the wall.", audioText: "wall", topic: "home", difficulty: "A2", emoji: "🖼️" },
+  { id: "home-15", word: "stairs", translation_he: "מדרגות", example_sentence_en: "I walk up the stairs.", audioText: "stairs", topic: "home", difficulty: "A2", emoji: "🪜" },
+  { id: "home-16", word: "balcony", translation_he: "מרפסת", example_sentence_en: "We sit on the balcony in the evening.", audioText: "balcony", topic: "home", difficulty: "A2", emoji: "🏡" },
+  { id: "home-17", word: "basement", translation_he: "מרתף", example_sentence_en: "We store boxes in the basement.", audioText: "basement", topic: "home", difficulty: "A2", emoji: "📦" },
+  { id: "home-18", word: "attic", translation_he: "עליית גג", example_sentence_en: "Old toys are in the attic.", audioText: "attic", topic: "home", difficulty: "A2", emoji: "🏚️" },
+  { id: "home-19", word: "garage", translation_he: "מוסך", example_sentence_en: "Dad parks the car in the garage.", audioText: "garage", topic: "home", difficulty: "A2", emoji: "🚗" },
+  { id: "home-20", word: "fence", translation_he: "גדר", example_sentence_en: "There is a fence around the garden.", audioText: "fence", topic: "home", difficulty: "A2", emoji: "🏡" },
+  { id: "home-21", word: "gate", translation_he: "שער", example_sentence_en: "Please close the gate.", audioText: "gate", topic: "home", difficulty: "A2", emoji: "🚪" },
+  { id: "home-22", word: "curtain", translation_he: "וילון", example_sentence_en: "I close the curtain at night.", audioText: "curtain", topic: "home", difficulty: "A2", emoji: "🪟" },
+  { id: "home-23", word: "carpet", translation_he: "שטיח", example_sentence_en: "The carpet in the living room is soft.", audioText: "carpet", topic: "home", difficulty: "A2", emoji: "🛋️" },
+
+  // ─── CLOTHES (additional words) ───────────────────────────────────────────
+  { id: "clothes-26", word: "swimsuit", translation_he: "בגד ים", example_sentence_en: "I wear a swimsuit at the beach.", audioText: "swimsuit", topic: "clothes", difficulty: "A2", emoji: "👙" },
+  { id: "clothes-27", word: "raincoat", translation_he: "מעיל גשם", example_sentence_en: "I wear a raincoat when it rains.", audioText: "raincoat", topic: "clothes", difficulty: "A2", emoji: "🧥" },
+  { id: "clothes-28", word: "vest", translation_he: "אפודה", example_sentence_en: "He wears a vest over his shirt.", audioText: "vest", topic: "clothes", difficulty: "A2", emoji: "🦺" },
+  { id: "clothes-29", word: "zipper", translation_he: "רוכסן", example_sentence_en: "Zip up your jacket.", audioText: "zipper", topic: "clothes", difficulty: "A2", emoji: "🤐" },
+  { id: "clothes-30", word: "button", translation_he: "כפתור", example_sentence_en: "I sew a button on my shirt.", audioText: "button", topic: "clothes", difficulty: "A2", emoji: "🔘" },
+  { id: "clothes-31", word: "pocket", translation_he: "כיס", example_sentence_en: "I keep my phone in my pocket.", audioText: "pocket", topic: "clothes", difficulty: "A2", emoji: "🧥" },
+
+  // ─── SPORTS (additional words) ────────────────────────────────────────────
+  { id: "sport-16", word: "skating", translation_he: "החלקה על קרח", example_sentence_en: "I love skating in winter.", audioText: "skating", topic: "sports", difficulty: "A2", emoji: "⛸️" },
+  { id: "sport-17", word: "boxing", translation_he: "איגרוף", example_sentence_en: "He trains boxing at the gym.", audioText: "boxing", topic: "sports", difficulty: "A2", emoji: "🥊" },
+  { id: "sport-18", word: "golf", translation_he: "גולף", example_sentence_en: "My uncle plays golf on weekends.", audioText: "golf", topic: "sports", difficulty: "A2", emoji: "⛳" },
+  { id: "sport-19", word: "fitness", translation_he: "כושר גופני", example_sentence_en: "Fitness keeps you strong and healthy.", audioText: "fitness", topic: "sports", difficulty: "A2", emoji: "💪" },
+  { id: "sport-20", word: "referee", translation_he: "שופט", example_sentence_en: "The referee blows the whistle.", audioText: "referee", topic: "sports", difficulty: "A2", emoji: "🟨" },
+  { id: "sport-21", word: "champion", translation_he: "אלוף", example_sentence_en: "She is the champion of the race.", audioText: "champion", topic: "sports", difficulty: "A2", emoji: "🏆" },
+
+  // ─── TECHNOLOGY (additional words) ───────────────────────────────────────
+  { id: "tech-31", word: "printer", translation_he: "מדפסת", example_sentence_en: "I print my homework on the printer.", audioText: "printer", topic: "technology", difficulty: "A2", emoji: "🖨️" },
+  { id: "tech-32", word: "video call", translation_he: "שיחת וידאו", example_sentence_en: "We make a video call with grandma.", audioText: "video call", topic: "technology", difficulty: "A2", emoji: "📹" },
+  { id: "tech-33", word: "robot", translation_he: "רובוט", example_sentence_en: "The robot can move and talk.", audioText: "robot", topic: "technology", difficulty: "A2", emoji: "🤖" },
+
+  // ─── NATURE (additional words) ────────────────────────────────────────────
+  { id: "nature-31", word: "cliff", translation_he: "צוק", example_sentence_en: "The bird sits on the cliff.", audioText: "cliff", topic: "nature", difficulty: "A2", emoji: "🪨" },
+  { id: "nature-32", word: "cave", translation_he: "מערה", example_sentence_en: "Bats live in a cave.", audioText: "cave", topic: "nature", difficulty: "A2", emoji: "🦇" },
+  { id: "nature-33", word: "pond", translation_he: "בריכה טבעית", example_sentence_en: "Frogs live near the pond.", audioText: "pond", topic: "nature", difficulty: "A2", emoji: "🐸" },
+  { id: "nature-34", word: "bush", translation_he: "שיח", example_sentence_en: "The bird hides in the bush.", audioText: "bush", topic: "nature", difficulty: "A2", emoji: "🌿" },
+  { id: "nature-35", word: "branch", translation_he: "ענף", example_sentence_en: "The monkey sits on a branch.", audioText: "branch", topic: "nature", difficulty: "A2", emoji: "🌿" },
+  { id: "nature-36", word: "seed", translation_he: "זרע", example_sentence_en: "I plant a seed in the soil.", audioText: "seed", topic: "nature", difficulty: "A2", emoji: "🌱" },
+
+  // ─── HEALTH (additional words) ────────────────────────────────────────────
+  { id: "health-21", word: "thermometer", translation_he: "מד חום", example_sentence_en: "The nurse uses a thermometer.", audioText: "thermometer", topic: "health", difficulty: "A2", emoji: "🌡️" },
+  { id: "health-22", word: "injection", translation_he: "זריקה", example_sentence_en: "The doctor gave me an injection.", audioText: "injection", topic: "health", difficulty: "A2", emoji: "💉" },
+  { id: "health-23", word: "surgery", translation_he: "ניתוח", example_sentence_en: "He had surgery on his knee.", audioText: "surgery", topic: "health", difficulty: "A2", emoji: "🏥" },
+  { id: "health-24", word: "wheelchair", translation_he: "כיסא גלגלים", example_sentence_en: "She uses a wheelchair.", audioText: "wheelchair", topic: "health", difficulty: "A2", emoji: "♿" },
+  { id: "health-25", word: "symptom", translation_he: "תסמין", example_sentence_en: "Fever is a symptom of illness.", audioText: "symptom", topic: "health", difficulty: "A2", emoji: "🤒" },
+
+  // ─── EMOTIONS (additional words) ──────────────────────────────────────────
+  { id: "emo-21", word: "ashamed", translation_he: "מתבייש", example_sentence_en: "He felt ashamed after lying.", audioText: "ashamed", topic: "emotions", difficulty: "A2", emoji: "😳" },
+  { id: "emo-22", word: "relieved", translation_he: "מוקל לב", example_sentence_en: "I felt relieved after the test.", audioText: "relieved", topic: "emotions", difficulty: "A2", emoji: "😅" },
+  { id: "emo-23", word: "cheerful", translation_he: "עליז", example_sentence_en: "She is always cheerful in the morning.", audioText: "cheerful", topic: "emotions", difficulty: "A2", emoji: "😄" },
+
+  // ─── TRAVEL (additional words) ────────────────────────────────────────────
+  { id: "travel-16", word: "boarding pass", translation_he: "כרטיס עלייה למטוס", example_sentence_en: "Show your boarding pass at the gate.", audioText: "boarding pass", topic: "travel", difficulty: "A2", emoji: "🎫" },
+  { id: "travel-17", word: "customs", translation_he: "מכס", example_sentence_en: "We go through customs at the airport.", audioText: "customs", topic: "travel", difficulty: "A2", emoji: "🛂" },
+  { id: "travel-18", word: "check-in", translation_he: "צ'ק אין", example_sentence_en: "We check in at the hotel.", audioText: "check-in", topic: "travel", difficulty: "A2", emoji: "🏨" },
+  { id: "travel-19", word: "delay", translation_he: "עיכוב", example_sentence_en: "The flight has a delay of one hour.", audioText: "delay", topic: "travel", difficulty: "A2", emoji: "⏳" },
+  { id: "travel-20", word: "currency", translation_he: "מטבע", example_sentence_en: "We change currency at the airport.", audioText: "currency", topic: "travel", difficulty: "A2", emoji: "💱" },
+
+  // ─── PROFESSIONS (additional words) ──────────────────────────────────────
+  { id: "prof-21", word: "journalist", translation_he: "עיתונאי", example_sentence_en: "The journalist writes news stories.", audioText: "journalist", topic: "professions", difficulty: "A2", emoji: "📰" },
+  { id: "prof-22", word: "architect", translation_he: "אדריכל", example_sentence_en: "The architect designs buildings.", audioText: "architect", topic: "professions", difficulty: "A2", emoji: "📐" },
+  { id: "prof-23", word: "pharmacist", translation_he: "רוקח", example_sentence_en: "The pharmacist gives me medicine.", audioText: "pharmacist", topic: "professions", difficulty: "A2", emoji: "💊" },
+  { id: "prof-24", word: "accountant", translation_he: "רואה חשבון", example_sentence_en: "The accountant counts the money.", audioText: "accountant", topic: "professions", difficulty: "A2", emoji: "🧾" },
+  { id: "prof-25", word: "mechanic", translation_he: "מכונאי", example_sentence_en: "The mechanic fixes the car.", audioText: "mechanic", topic: "professions", difficulty: "A2", emoji: "🔧" },
+  { id: "prof-26", word: "plumber", translation_he: "אינסטלטור", example_sentence_en: "The plumber fixes the pipes.", audioText: "plumber", topic: "professions", difficulty: "A2", emoji: "🪠" },
+
+  // ─── SHOPPING (additional words) ─────────────────────────────────────────
+  { id: "shop-16", word: "price tag", translation_he: "תג מחיר", example_sentence_en: "I check the price tag before buying.", audioText: "price tag", topic: "shopping", difficulty: "A2", emoji: "🏷️" },
+  { id: "shop-17", word: "fitting room", translation_he: "חדר הלבשה", example_sentence_en: "I try on clothes in the fitting room.", audioText: "fitting room", topic: "shopping", difficulty: "A2", emoji: "🪞" },
+  { id: "shop-18", word: "cash register", translation_he: "קופה", example_sentence_en: "Pay at the cash register.", audioText: "cash register", topic: "shopping", difficulty: "A2", emoji: "🧮" },
+  { id: "shop-19", word: "refund", translation_he: "החזר כספי", example_sentence_en: "I got a refund for the broken toy.", audioText: "refund", topic: "shopping", difficulty: "A2", emoji: "💰" },
+  { id: "shop-20", word: "cart", translation_he: "עגלת קניות", example_sentence_en: "I push the cart in the supermarket.", audioText: "cart", topic: "shopping", difficulty: "A2", emoji: "🛒" },
+  { id: "shop-21", word: "checkout", translation_he: "קופה / תשלום", example_sentence_en: "We wait in line at the checkout.", audioText: "checkout", topic: "shopping", difficulty: "A2", emoji: "🏪" },
+  { id: "shop-22", word: "brand", translation_he: "מותג", example_sentence_en: "That is a famous brand.", audioText: "brand", topic: "shopping", difficulty: "A2", emoji: "🏷️" },
+  { id: "shop-23", word: "size", translation_he: "מידה", example_sentence_en: "What size shoes do you wear?", audioText: "size", topic: "shopping", difficulty: "A2", emoji: "📏" },
 ];
 
 /** Get vocabulary by ID */
