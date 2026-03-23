@@ -225,7 +225,7 @@ export const ISRAEL_WARS_TANKS: IsraelWarsTank[] = [
     category: "light",
     categoryEnglish: "Light Tank",
     imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/b/be/AMX_13_Saumur_0.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/7/78/AMX-13-latrun-2.jpg",
     imageCredit: "Wikimedia Commons / CC-BY-SA 3.0",
     funFactEnglish:
       "The AMX-13 was a clever French light tank with an automatic loading system — it could fire shots very quickly without the crew needing to reload by hand! Israel used it in the 1956 Sinai Campaign and again in the Six-Day War, but it was too lightly armored for the heavy fighting of 1967.",
@@ -282,7 +282,7 @@ export const ISRAEL_WARS_TANKS: IsraelWarsTank[] = [
     category: "medium",
     categoryEnglish: "Medium Tank",
     imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/9/94/M48-Patton-latrun-2.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/8/80/M48-Patton-latrun-2-1.jpg",
     imageCredit: "Wikimedia Commons / CC-BY-SA 3.0",
     funFactEnglish:
       "Israel called its M48 Patton tanks 'Magach,' which means 'battering ram' in Hebrew. These American tanks were secretly sold to Israel and then upgraded with better guns and engines. In the Six-Day War, Magach tanks led the charge through the Sinai Desert at incredible speed!",
@@ -360,7 +360,7 @@ export const ISRAEL_WARS_TANKS: IsraelWarsTank[] = [
     category: "medium",
     categoryEnglish: "Medium Tank",
     imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/8/88/T-54_latrun_2.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/0/0a/T-54-latrun-2.jpg",
     imageCredit: "Wikimedia Commons / CC-BY-SA 3.0",
     funFactEnglish:
       "The T-54 was the most widely produced tank in history — the Soviet Union and its allies built over 100,000 of them! Egypt and Syria used T-54s in multiple wars against Israel. You can actually see captured T-54s on display right outside the main gate of the Israeli Tank Museum at Latrun.",
@@ -398,7 +398,7 @@ export const ISRAEL_WARS_TANKS: IsraelWarsTank[] = [
     category: "medium",
     categoryEnglish: "Medium Tank",
     imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/9/94/M48-Patton-latrun-2.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/8/80/M48-Patton-latrun-2-1.jpg",
     imageCredit: "Wikimedia Commons / CC-BY-SA 3.0",
     funFactEnglish:
       "Jordan bought American M48 Patton tanks to defend itself, but in 1967, Israeli forces destroyed or captured over 170 Jordanian tanks in just three days! It was one of the fastest defeats of an armored force in military history. Some captured Jordanian M48s were later used by the Israeli army.",
@@ -438,7 +438,7 @@ export const ISRAEL_WARS_TANKS: IsraelWarsTank[] = [
     category: "medium",
     categoryEnglish: "Medium Tank",
     imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/f/f0/M60-patton-latrun-2.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/8/8f/M60A1-Patton-Blazer-latrun-2.jpg",
     imageCredit: "Wikimedia Commons / CC-BY-SA 3.0",
     funFactEnglish:
       "The M60 Magach 6 was Israel's most modern tank at the start of the Yom Kippur War in 1973. When Egyptian forces crossed the Suez Canal in a surprise attack, Magach 6 tanks rushed to stop them. After the war, Israel added special armor packages to make the Magach even harder to destroy.",
@@ -459,7 +459,7 @@ export const ISRAEL_WARS_TANKS: IsraelWarsTank[] = [
     category: "medium",
     categoryEnglish: "Medium Tank",
     imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/4/43/T-55_latrun_2.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/7/77/T-55_at_Latrun1.JPG",
     imageCredit: "Wikimedia Commons / CC-BY-SA 3.0",
     funFactEnglish:
       "The T-55 was an improved version of the T-54, with better armor and the first built-in protection against nuclear blasts! Syria used over 1,000 T-55 tanks when it attacked Israel on the Golan Heights in 1973. The battle was so fierce that the area was later called the 'Valley of Tears.'",
@@ -478,7 +478,7 @@ export const ISRAEL_WARS_TANKS: IsraelWarsTank[] = [
     category: "medium",
     categoryEnglish: "Medium Tank",
     imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/8/82/T-62_latrun_2.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/6/6b/Latrun_-_Armored_Corps_Museum_P1100648_%285152538740%29.jpg",
     imageCredit: "Wikimedia Commons / CC-BY-SA 3.0",
     funFactEnglish:
       "The T-62 was the most advanced Soviet tank when it first appeared, featuring a powerful 115mm smoothbore gun — the first tank gun of this type ever used in combat! Egypt brought T-62s into the Yom Kippur War in 1973. Israel captured many T-62s and studied them closely to learn Soviet tank technology.",
@@ -497,7 +497,7 @@ export const ISRAEL_WARS_TANKS: IsraelWarsTank[] = [
     category: "amphibious",
     categoryEnglish: "Amphibious Tank",
     imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/4/42/PT-76_latrun_2.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/7/73/PT-76-latrun-2.jpg",
     imageCredit: "Wikimedia Commons / CC-BY-SA 3.0",
     funFactEnglish:
       "The PT-76 is a Soviet amphibious tank that can swim across rivers and lakes! Egypt used PT-76s during the Suez Canal crossing in 1973 — they literally drove their tanks into the water and swam to the other side. It was a key part of Egypt's surprise attack that shocked the entire world.",
@@ -516,7 +516,7 @@ export const ISRAEL_WARS_TANKS: IsraelWarsTank[] = [
     category: "light",
     categoryEnglish: "Light Tank",
     imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/b/b9/BMP-1_latrun_2.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/0/04/BMP-1-latrun-2.jpg",
     imageCredit: "Wikimedia Commons / CC-BY-SA 3.0",
     funFactEnglish:
       "The BMP-1 was a revolutionary new type of vehicle — an infantry fighting vehicle that could carry soldiers AND fight alongside tanks at the same time. Syria used hundreds of BMP-1s in 1973. It was the first time the world saw this new kind of armored vehicle used in real combat on such a large scale.",
@@ -537,7 +537,7 @@ export const ISRAEL_WARS_TANKS: IsraelWarsTank[] = [
     category: "heavy",
     categoryEnglish: "Heavy Tank",
     imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/d/d5/Merkava_I_latrun_1.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/b/bd/Merkava-1-latrun-1.jpg",
     imageCredit: "Wikimedia Commons / CC-BY-SA 3.0",
     funFactEnglish:
       "The Merkava was designed entirely in Israel and is unlike any other tank in the world! Its engine is in the FRONT instead of the back — this protects the crew much better from enemy fire. The Merkava first saw real combat in Lebanon in 1982, and Israel has kept improving it ever since with new versions.",
@@ -558,7 +558,7 @@ export const ISRAEL_WARS_TANKS: IsraelWarsTank[] = [
     category: "medium",
     categoryEnglish: "Medium Tank",
     imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/f/f2/T-72_latrun_2.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/f/f0/T-72-latrun-2.jpg",
     imageCredit: "Wikimedia Commons / CC-BY-SA 3.0",
     funFactEnglish:
       "Syria's T-72 was one of the most powerful Soviet tanks ever built in the 1970s. In 1982, Israeli Merkava tanks destroyed over 80 Syrian T-72s in the Bekaa Valley — it was the largest tank battle since World War II! The battle proved that Israeli training and tactics could defeat even the newest Soviet equipment.",
@@ -599,7 +599,7 @@ export const ISRAEL_WARS_TANKS: IsraelWarsTank[] = [
     category: "medium",
     categoryEnglish: "Medium Tank",
     imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/4/43/T-55_latrun_2.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/7/77/T-55_at_Latrun1.JPG",
     imageCredit: "Wikimedia Commons / CC-BY-SA 3.0",
     funFactEnglish:
       "Egypt deployed thousands of T-55 tanks when crossing the Suez Canal in the Yom Kippur War in 1973. The surprise attack was so well-planned that it initially overwhelmed Israeli defenses. Egypt's use of anti-tank missiles alongside the T-55 changed how armies think about tank warfare forever.",
@@ -619,7 +619,7 @@ export const ISRAEL_WARS_TANKS: IsraelWarsTank[] = [
     category: "medium",
     categoryEnglish: "Medium Tank",
     imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/8/82/T-62_latrun_2.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/6/6b/Latrun_-_Armored_Corps_Museum_P1100648_%285152538740%29.jpg",
     imageCredit: "Wikimedia Commons / CC-BY-SA 3.0",
     funFactEnglish:
       "Syria used T-62 tanks in the massive assault on the Golan Heights in 1973. These tanks flooded across the border in huge numbers — at one point over 1,400 Syrian tanks were attacking a small group of just 177 Israeli tanks! The outnumbered Israeli crews fought so bravely that this battle is studied in military schools around the world.",
@@ -639,7 +639,7 @@ export const ISRAEL_WARS_TANKS: IsraelWarsTank[] = [
     category: "light",
     categoryEnglish: "Light Tank",
     imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/b/b9/BMP-1_latrun_2.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/0/04/BMP-1-latrun-2.jpg",
     imageCredit: "Wikimedia Commons / CC-BY-SA 3.0",
     funFactEnglish:
       "Egypt was one of the first countries in the Middle East to use the new BMP-1 infantry fighting vehicle in 1973. Egyptian soldiers used the BMP-1's built-in missile launcher to destroy Israeli tanks from a distance during the crossing of the Suez Canal. This new tactic was a big shock to Israeli commanders.",
@@ -659,7 +659,7 @@ export const ISRAEL_WARS_TANKS: IsraelWarsTank[] = [
     category: "medium",
     categoryEnglish: "Medium Tank",
     imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/8/88/T-54_latrun_2.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/0/0a/T-54-latrun-2.jpg",
     imageCredit: "Wikimedia Commons / CC-BY-SA 3.0",
     funFactEnglish:
       "Syria used T-54 tanks in three different wars against Israel! In the Six-Day War of 1967, Israel captured so many Syrian T-54s that they actually added some of them to the Israeli army. Captured enemy tanks are called 'war trophies,' and Israel became very skilled at quickly fixing and reusing them.",
@@ -679,7 +679,7 @@ export const ISRAEL_WARS_TANKS: IsraelWarsTank[] = [
     category: "medium",
     categoryEnglish: "Medium Tank",
     imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/4/43/T-55_latrun_2.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/7/77/T-55_at_Latrun1.JPG",
     imageCredit: "Wikimedia Commons / CC-BY-SA 3.0",
     funFactEnglish:
       "Syrian T-55 tanks deployed to Lebanon were among the defenders when Israeli forces invaded in 1982. The fighting in the narrow streets of Lebanese cities was very different from open desert battles. Syrian T-55s were at a disadvantage in urban combat, where Israeli anti-tank teams could get close and attack from the sides.",
@@ -739,7 +739,7 @@ export const ISRAEL_WARS_TANKS: IsraelWarsTank[] = [
     category: "medium",
     categoryEnglish: "Medium Tank",
     imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/f/f0/M60-patton-latrun-2.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/8/8f/M60A1-Patton-Blazer-latrun-2.jpg",
     imageCredit: "Wikimedia Commons / CC-BY-SA 3.0",
     funFactEnglish:
       "After the Yom Kippur War, Israel added special Blazer explosive reactive armor to the M60 Magach 6B — small armor blocks that explode OUTWARD when hit by a missile, pushing the blast away from the tank! This was the first time reactive armor was used in real combat in Lebanon in 1982, and it surprised and confused enemy anti-tank teams.",
@@ -779,7 +779,7 @@ export const ISRAEL_WARS_TANKS: IsraelWarsTank[] = [
     category: "amphibious",
     categoryEnglish: "Amphibious Tank",
     imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/4/42/PT-76_latrun_2.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/7/73/PT-76-latrun-2.jpg",
     imageCredit: "Wikimedia Commons / CC-BY-SA 3.0",
     funFactEnglish:
       "Syria used PT-76 amphibious tanks near the Sea of Galilee in the Six-Day War, hoping to cross water obstacles quickly. The PT-76's ability to float made it useful for river crossings, but its thin armor made it easy to destroy. Several Syrian PT-76s were captured by Israel and placed on permanent display at the Latrun tank museum.",
