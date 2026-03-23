@@ -26,6 +26,7 @@ import { getPronStats } from "@/lib/storage/pronunciation";
 import { getSpeakingGamesStats } from "@/lib/storage/speaking-games";
 import { getWW2TanksStats } from "@/lib/storage/ww2-tanks";
 import { getWW1TanksStats } from "@/lib/storage/ww1-tanks";
+import { getIsraelWarsTanksStats } from "@/lib/storage/israel-wars-tanks";
 
 // ─── Module definitions ─────────────────────────────────────────────────────
 const MODULES = [
@@ -182,6 +183,14 @@ const MODULES = [
     color: "from-stone-700 to-amber-900",
     isAnchor: false,
   },
+  {
+    href: "/israel-wars-tanks",
+    icon: "🇮🇱",
+    title_he: "טנקי מלחמות ישראל",
+    desc_he: "4 מלחמות · ישראל ועולם הערבי",
+    color: "from-blue-700 to-blue-900",
+    isAnchor: false,
+  },
 ] as const;
 
 // ─── Star rating ─────────────────────────────────────────────────────────────
@@ -212,6 +221,7 @@ export default function HomePage() {
   const [speakingGamesXP, setSpeakingGamesXP] = useState(0);
   const [tanksXP, setTanksXP] = useState(0);
   const [ww1TanksXP, setWW1TanksXP] = useState(0);
+  const [israelWarsTanksXP, setIsraelWarsTanksXP] = useState(0);
 
   useEffect(() => {
     setUnlockedCount(getUnlockedIds().length);
@@ -230,6 +240,8 @@ export default function HomePage() {
     setTanksXP(tanksStats.xp);
     const ww1Stats = getWW1TanksStats();
     setWW1TanksXP(ww1Stats.xp);
+    const israelStats = getIsraelWarsTanksStats();
+    setIsraelWarsTanksXP(israelStats.xp);
   }, []);
 
   if (!progress) {
@@ -434,6 +446,13 @@ export default function HomePage() {
                     <div className="mt-2 bg-white/20 rounded-full px-2 py-0.5 inline-block">
                       <span className="text-xs font-bold">
                         {ww1TanksXP > 0 ? `${ww1TanksXP} XP 🎖️` : "חדש! 🎖️"}
+                      </span>
+                    </div>
+                  )}
+                  {mod.href === "/israel-wars-tanks" && (
+                    <div className="mt-2 bg-white/20 rounded-full px-2 py-0.5 inline-block">
+                      <span className="text-xs font-bold">
+                        {israelWarsTanksXP > 0 ? `${israelWarsTanksXP} XP 🇮🇱` : "חדש! 🇮🇱"}
                       </span>
                     </div>
                   )}
