@@ -119,7 +119,7 @@ export const WWI_TANKS: WWITank[] = [
     categoryHebrew: "בינוני",
     // Museum exhibit photo — Whippet.JPG on Commons
     imageUrl:
-      "https://upload.wikimedia.org/wikipedia/commons/7/75/Whippet.JPG",
+      "https://upload.wikimedia.org/wikipedia/commons/e/e3/FastWhippet.jpg",
     imageCredit: "Wikimedia Commons, Public Domain",
     funFactHebrew:
       "הוויפט היה הטנק המהיר של הבריטים — הוא יכול לנסוע 13 קמ\"ש, כמעט פי שלושה ממהירות הטנקים הכבדים! השם 'ויפט' הוא סוג של כלב מרוץ מהיר.",
